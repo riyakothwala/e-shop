@@ -1,0 +1,26 @@
+.site-menu {
+    li {
+        a {}
+        ul {
+            display: none;
+            transition: all 300ms;
+            position: absolute;
+            background: #fff;
+            border-bottom: 2px solid lightblue;
+            li {}
+        }
+        &:hover {
+            ul {
+                display: table;
+            }
+        }
+    }
+}
+
+.list-inline {
+    list-style: none;
+}
+
+.list-inline>li {
+    display: inline;
+}

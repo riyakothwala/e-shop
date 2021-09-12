@@ -1,0 +1,10 @@
+.products {
+    .card {
+        img {
+            &:hover {
+                transition: all 300ms;
+                transform: scale(0.9);
+            }
+        }
+    }
+}
