@@ -1,10 +1,10 @@
-<div class="row">
-    <div class="col-lg-4 col-12 font-weight-bold">
+<div class="row navbar navbar-collapse">
+    <div class="col-lg-4 col-12">
         SHOP
     </div>
     <div class="col-lg-4 col-12">
         <ul class="site-menu d-none d-lg-block">
-            <li class="has-children active d-inline-block mr-2">
+            <li class="has-children active d-inline-block">
                 <a href="index.html">Categories</a>
                 <ul class="dropdown">
                     <li>
@@ -15,9 +15,9 @@
                         <a href="#">Dairy</a></li>
                 </ul>
             </li>
-            &nbsp;
+            <!-- &nbsp; -->
             <!-- TODO: why mr not working?-->
-            <li class="d-inline-block pd-2">
+            <li class="d-inline-block" style="margin-left: 10px;">
                 <a href="contact.html">Contact</a>
             </li>
 
@@ -25,9 +25,19 @@
     </div>
     <div class="col-lg-4 col-12">
         <ul class="list-inline">
-            <li><i class="fas fa-search"></i></li>
-            &nbsp;
-            <li><i class="fas fa-shopping-cart"></i></li>
+            <div class="input-group">
+                <div class="form-outline">
+                    <input type="search" [(ngModel)]="searchText" id="searchbar" class="form-control" (change)="newSearchText()" />
+                    <!-- <label class="form-label" for="form1">Search</label> -->
+                </div>
+                <button type="button" class="btn btn-primary" (click)="newSearchText()">
+                  <i class="fas fa-search"></i>
+                </button>
+                <i class="fas fa-shopping-cart blue"></i>
+                <!-- <li><i class="fas fa-search"></i></li>
+                &nbsp;
+                <li><i class="fas fa-shopping-cart"></i></li> -->
+            </div>
         </ul>
     </div>
 </div>
