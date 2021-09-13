@@ -19,7 +19,6 @@
             border-bottom: 2px solid lightblue;
             z-index: 1;
             list-style-type: none;
-            li {}
         }
         &:hover {
             background-color: #0b3c86;
@@ -42,7 +41,6 @@
     margin-left: 15px;
     margin-right: 15px;
     background-color: #0d6efd; /* light blue */
-    border: #0d6efd; /* light blue */
     border-radius: 5px;
     color: white;
     padding: .375rem .75rem;

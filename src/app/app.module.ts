@@ -12,6 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ContactComponent } from './contact/contact.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { UserCartComponent } from './user-cart/user-cart.component';
+import { ItemsOnCartComponent } from './items-on-cart/items-on-cart.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { UserCartComponent } from './user-cart/user-cart.component';
     CarouselComponent,
     ContactComponent,
     CategoriesComponent,
-    UserCartComponent
+    UserCartComponent,
+    ItemsOnCartComponent
   ],
   imports: [
     BrowserModule, PaginationModule.forRoot(), FormsModule, AppRoutingModule
