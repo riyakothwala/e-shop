@@ -5,6 +5,7 @@ import { Product } from '../Product';
 import { SearchDataService } from '../search-data.service';
 
 import { TotalCostService } from '../total-cost.service';
+import { ShoppingCartService } from '../shopping-cart.service';
 
 @Component({
   selector: 'app-product-list',
@@ -20,8 +21,9 @@ export class ProductListComponent implements OnInit {
   searchText: string = '';
   cartSum: number = 0;
   cost: number = 0;
+  itemsOnCart: string[] = [];
 
-  constructor(private searchDataService: SearchDataService, private costData: TotalCostService) { }
+  constructor(private searchDataService: SearchDataService, private costData: TotalCostService, private cartData: ShoppingCartService) { }
 
   ngOnInit(): void {
     const startItem = 0;
@@ -39,6 +41,7 @@ export class ProductListComponent implements OnInit {
     });
     this.costData.currentCostTotal.subscribe(cartSum => this.cartSum = cartSum)
     this.costData.currentCost.subscribe(cost => this.cost = cost)
+    this.cartData.currentCart.subscribe(itemsOnCart => this.itemsOnCart = itemsOnCart)
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -54,9 +57,12 @@ export class ProductListComponent implements OnInit {
     this.returnedProductList = this.filteredProductList.slice(startItem, endItem);
   }
 
-  addToCart(newCost: number){
+  addToCart(newCost: number, newItem: string){
     this.costData.changeCost(newCost);
     this.cartSum = this.cartSum + newCost;
     this.costData.changeCostTotal(this.cartSum);
+
+    this.itemsOnCart.push(newItem);
+    this.cartData.changeCartData(this.itemsOnCart);
   }
 }
