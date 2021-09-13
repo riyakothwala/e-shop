@@ -8,6 +8,10 @@ import { FooterComponent } from './core/footer/footer.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { AppRoutingModule } from './app-routing.module';
+import { ContactComponent } from './contact/contact.component';
+import { CategoriesComponent } from './categories/categories.component';
+import { UserCartComponent } from './user-cart/user-cart.component';
 
 @NgModule({
   declarations: [
@@ -15,10 +19,13 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
     HeaderComponent,
     FooterComponent,
     ProductListComponent,
-    CarouselComponent
+    CarouselComponent,
+    ContactComponent,
+    CategoriesComponent,
+    UserCartComponent
   ],
   imports: [
-    BrowserModule, PaginationModule.forRoot(), FormsModule
+    BrowserModule, PaginationModule.forRoot(), FormsModule, AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -4,6 +4,8 @@ import productList from '../../assets/data/products.json';
 import { Product } from '../Product';
 import { SearchDataService } from '../search-data.service';
 
+import { TotalCostService } from '../total-cost.service';
+
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
@@ -16,8 +18,10 @@ export class ProductListComponent implements OnInit {
   filteredProductList: Product[] = [];
   itemsPerPage = 12;
   searchText: string = '';
+  cartSum: number = 0;
+  cost: number = 0;
 
-  constructor(private searchDataService: SearchDataService) { }
+  constructor(private searchDataService: SearchDataService, private costData: TotalCostService) { }
 
   ngOnInit(): void {
     const startItem = 0;
@@ -33,6 +37,8 @@ export class ProductListComponent implements OnInit {
       this.returnedProductList = this.filteredProductList.slice(startItem, endItem);
       console.log(this.filteredProductList.length);
     });
+    this.costData.currentCostTotal.subscribe(cartSum => this.cartSum = cartSum)
+    this.costData.currentCost.subscribe(cost => this.cost = cost)
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -46,5 +52,11 @@ export class ProductListComponent implements OnInit {
     const startItem = (event.page - 1) * event.itemsPerPage;
     const endItem = event.page * event.itemsPerPage;
     this.returnedProductList = this.filteredProductList.slice(startItem, endItem);
+  }
+
+  addToCart(newCost: number){
+    this.costData.changeCost(newCost);
+    this.cartSum = this.cartSum + newCost;
+    this.costData.changeCostTotal(this.cartSum);
   }
 }

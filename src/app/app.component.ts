@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'shop';
+  cartSum: number = 0;
+
+  getCartSum(){
+    return this.cartSum;
+  }
 }

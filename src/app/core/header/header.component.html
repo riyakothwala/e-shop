@@ -5,20 +5,24 @@
     <div class="col-lg-4 col-12">
         <ul class="site-menu d-none d-lg-block">
             <li class="has-children active d-inline-block">
-                <a href="index.html">Categories</a>
-                <ul class="dropdown">
-                    <li>
-                        <a href="#">Vegetable</a></li>
-                    <li>
-                        <a href="#">Fruits</a></li>
-                    <li>
-                        <a href="#">Dairy</a></li>
-                </ul>
+                <nav>
+                    <a class="header" routerLink="/categories">Categories</a>
+                    <ul>
+                        <li>
+                            <a class="dropdown" href="#">Vegetable</a></li>
+                        <li>
+                            <a class="dropdown" href="#">Fruits</a></li>
+                        <li>
+                            <a class="dropdown" href="#">Dairy</a></li>
+                    </ul>
+                </nav>
             </li>
             <!-- &nbsp; -->
             <!-- TODO: why mr not working?-->
-            <li class="d-inline-block" style="margin-left: 10px;">
-                <a href="contact.html">Contact</a>
+            <li class="has-children active d-inline-block">
+                <nav>
+                    <a class="header" routerLink="/contactUs">Contact Us</a>
+                </nav>
             </li>
 
         </ul>
@@ -30,14 +34,20 @@
                     <input type="search" [(ngModel)]="searchText" id="searchbar" class="form-control" (change)="newSearchText()" />
                     <!-- <label class="form-label" for="form1">Search</label> -->
                 </div>
-                <button type="button" class="btn btn-primary" (click)="newSearchText()">
-                  <i class="fas fa-search"></i>
-                </button>
-                <i class="fas fa-shopping-cart blue"></i>
                 <!-- <li><i class="fas fa-search"></i></li>
                 &nbsp;
                 <li><i class="fas fa-shopping-cart"></i></li> -->
+
+                <div class="headerButton1" (click)="newSearchText()">
+                    <i class="fas fa-search"></i>  
+                </div>
+
+                <div class="headerButton1">
+                    <i class="fas fa-shopping-cart blue"></i>
+                </div>
             </div>
         </ul>
     </div>
+    
+    <router-outlet></router-outlet>
 </div>

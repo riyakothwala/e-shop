@@ -1,6 +1,16 @@
 .site-menu {
     li {
-        a {}
+        background-color: #0d6efd; /* light blue */
+        border: #000000; /* light blue */
+        border-radius: 5px;
+        margin-left: 10px;
+        margin-right: 10px;
+        padding: .375rem .75rem;
+        a {
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+            text-transform: uppercase;
+        }
         ul {
             display: none;
             transition: all 300ms;
@@ -8,9 +18,11 @@
             background: #fff;
             border-bottom: 2px solid lightblue;
             z-index: 1;
+            list-style-type: none;
             li {}
         }
         &:hover {
+            background-color: #0b3c86;
             ul {
                 display: table;
             }
@@ -25,3 +37,21 @@
 .list-inline>li {
     display: inline;
 }
+
+.headerButton1 {
+    margin-left: 15px;
+    margin-right: 15px;
+    background-color: #0d6efd; /* light blue */
+    border: #0d6efd; /* light blue */
+    border-radius: 5px;
+    color: white;
+    padding: .375rem .75rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    &:hover {
+        background-color: #0b3c86;
+      }
+  }
+

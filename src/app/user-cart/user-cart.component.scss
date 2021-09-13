@@ -1,0 +1,16 @@
+.cartButton {
+    margin: 10px 10px 10px 0px;
+    background-color: #0d6efd; /* light blue */
+    border: #0d6efd; /* light blue */
+    border-radius: 5px;
+    color: white;
+    padding: .375rem .75rem;
+    width: 100px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    &:hover {
+        background-color: #0b3c86;
+      }
+}
