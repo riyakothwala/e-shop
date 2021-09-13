@@ -13,7 +13,7 @@ import { TotalCostService } from '../total-cost.service';
 })
 export class ProductListComponent implements OnInit {
 
-  public productList: Product[] = productList;
+  productList: Product[] = productList;
   returnedProductList: Product[] = [];
   filteredProductList: Product[] = [];
   itemsPerPage = 12;

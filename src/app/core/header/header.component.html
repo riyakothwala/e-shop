@@ -1,9 +1,17 @@
 <div class="row navbar navbar-collapse" style="font-size: large;">
-    <div class="col-lg-4 col-12" style="font-weight: bold;font-size: 60px;color: rgb(63, 15, 15);text-shadow: 2px 2px 5px red;">
+    <!-- <a href="#" class="col-lg-3 col-12" style="font-weight: bold;font-size: 60px;color: rgb(63, 15, 15);text-shadow: 2px 2px 5px red;">
         E-SHOP
-    </div>
-    <div class="col-lg-4 col-12">
+    </a> -->
+    <a class="col-lg-1 col-12 navbar-brand" routerLink="/">
+        <img src="../../assets/images/header/eshop-logo-no-border.png" alt="..." height="50px">
+    </a>
+    <div class="col-lg-5 col-12">
         <ul class="site-menu d-none d-lg-block">
+            <li class="has-children active d-inline-block">
+                <nav>
+                    <a class="header" routerLink="/">Home</a>
+                </nav>
+            </li>
             <li class="has-children active d-inline-block">
                 <nav>
                     <a class="header" routerLink="/categories">Categories</a>
@@ -31,14 +39,14 @@
         <ul class="list-inline">
             <div class="input-group">
                 <div class="form-outline">
-                    <input type="search" [(ngModel)]="searchText" id="searchbar" class="form-control" (change)="newSearchText()" />
+                    <input type="search" [(ngModel)]="searchText" id="searchbar" class="form-control" (change)="newSearchText('productList')" />
                     <!-- <label class="form-label" for="form1">Search</label> -->
                 </div>
                 <!-- <li><i class="fas fa-search"></i></li>
                 &nbsp;
                 <li><i class="fas fa-shopping-cart"></i></li> -->
 
-                <div class="headerButton1" (click)="newSearchText()">
+                <div class="headerButton1" (click)="newSearchText('productList')">
                     <i class="fas fa-search"></i>
                 </div>
 
