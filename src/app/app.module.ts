@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './core/header/header.component';
@@ -13,6 +14,7 @@ import { ContactComponent } from './contact/contact.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { UserCartComponent } from './user-cart/user-cart.component';
 import { ItemsOnCartComponent } from './items-on-cart/items-on-cart.component';
+import { ModalCompComponent } from './modal-comp/modal-comp.component';
 
 @NgModule({
   declarations: [
@@ -24,12 +26,14 @@ import { ItemsOnCartComponent } from './items-on-cart/items-on-cart.component';
     ContactComponent,
     CategoriesComponent,
     UserCartComponent,
-    ItemsOnCartComponent
+    ItemsOnCartComponent,
+    ModalCompComponent
   ],
   imports: [
-    BrowserModule, PaginationModule.forRoot(), FormsModule, AppRoutingModule
+    BrowserModule, ModalModule.forRoot(), PaginationModule.forRoot(), FormsModule, AppRoutingModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ModalCompComponent]
 })
 export class AppModule { }

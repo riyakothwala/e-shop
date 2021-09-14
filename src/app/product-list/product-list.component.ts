@@ -1,11 +1,14 @@
-import { Component, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnInit, SimpleChanges, TemplateRef } from '@angular/core';
 import { PageChangedEvent } from 'ngx-bootstrap/pagination';
+import { BsModalService, BsModalRef, ModalOptions } from 'ngx-bootstrap/modal';
+
 import productList from '../../assets/data/products.json';
 import { Product } from '../Product';
 import { SearchDataService } from '../search-data.service';
-
 import { TotalCostService } from '../total-cost.service';
 import { ShoppingCartService } from '../shopping-cart.service';
+import { ModalCompComponent } from '../modal-comp/modal-comp.component';
+
 
 @Component({
   selector: 'app-product-list',
@@ -22,8 +25,9 @@ export class ProductListComponent implements OnInit {
   cartSum: number = 0;
   cost: number = 0;
   itemsOnCart: string[] = [];
+  modalRef!: BsModalRef;
 
-  constructor(private searchDataService: SearchDataService, private costData: TotalCostService, private cartData: ShoppingCartService) { }
+  constructor(private searchDataService: SearchDataService, private costData: TotalCostService, private cartData: ShoppingCartService, private modalService: BsModalService) { }
 
   ngOnInit(): void {
     const startItem = 0;
@@ -57,12 +61,23 @@ export class ProductListComponent implements OnInit {
     this.returnedProductList = this.filteredProductList.slice(startItem, endItem);
   }
 
-  addToCart(newCost: number, newItem: string){
+  addToCart(newCost: number, newItem: string) {
     this.costData.changeCost(newCost);
     this.cartSum = this.cartSum + newCost;
     this.costData.changeCostTotal(this.cartSum);
 
     this.itemsOnCart.push(newItem);
     this.cartData.changeCartData(this.itemsOnCart);
+  }
+
+
+  openModalWithProductDescription(product: Product) {
+    const config: ModalOptions = {
+      initialState: {
+        "product": product
+      }
+    }
+    this.modalRef = this.modalService.show(ModalCompComponent, config);
+    // this.modalRef.content.closeBtnName = 'Close';
   }
 }
