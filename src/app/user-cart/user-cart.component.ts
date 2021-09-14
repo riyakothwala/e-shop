@@ -2,6 +2,8 @@ import { Component, OnInit, SimpleChange} from '@angular/core';
 
 import { TotalCostService } from '../total-cost.service';
 import { ShoppingCartService } from '../shopping-cart.service';
+import { CartService } from '../cart.service';
+import { Product } from '../Product';
 
 @Component({
   selector: 'app-user-cart',
@@ -13,14 +15,14 @@ export class UserCartComponent implements OnInit {
   cartSum: number = 0;
   cost: number = 0;
   zero: number = 0;
-  itemsOnCart: string[] = [];
+  itemsOnCart: Product[] = [];
 
-  constructor(private costData: TotalCostService, private cartData: ShoppingCartService) { }
+  constructor(private costData: TotalCostService, private cartData: ShoppingCartService, private cart: CartService) { }
 
   ngOnInit(): void {
     this.costData.currentCostTotal.subscribe(cartSum => this.cartSum = cartSum)
     this.costData.currentCost.subscribe(cost => this.cost = cost)
-    this.cartData.currentCart.subscribe(itemsOnCart => this.itemsOnCart = itemsOnCart)
+    this.cartData.cartC.subscribe(itemsOnCart => this.itemsOnCart = itemsOnCart)
   }
 
   addToCart(cost: number): void {
@@ -29,9 +31,9 @@ export class UserCartComponent implements OnInit {
 
   clearCart() {
     this.costData.changeCostTotal(0);
-    
+
     this.itemsOnCart = [];
-    this.cartData.changeCartData(this.itemsOnCart);
+    this.cartData.addToCart(this.itemsOnCart);
   }
 
 }

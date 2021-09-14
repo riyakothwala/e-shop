@@ -1,14 +1,14 @@
 <div class="row products" id="productList">
     <div class="row mt-50">
         <h1 style="padding-top: 50px;padding-bottom: 30px;"> Shop now </h1>
-        <div *ngFor="let product of returnedProductList" class="col-lg-2 col-12 mb-5">
+        <div *ngFor="let product of returnedProductList, let i = index" class="col-lg-2 col-12 mb-5">
             <div class="card" style="height: 32rem;">
                 <img src="../../assets/images/products/{{product.filename}}" class="card-img-top" alt="..." width="200" height="300">
                 <div class="card-body">
                     <h5 class="card-title">{{product.title}}</h5>
                     <p class="card-text">${{product.price}}</p>
                     <button class="btn btn-floating" style="margin-top: 5px;padding-left: 3px;" (click)="openModalWithProductDescription(product)">Details</button>
-                    <a class="btn btn-primary" (click)="addToCart(product.price, product.title);">Add to cart</a>
+                    <a class="btn btn-primary" (click)="addToCart1(product.price, product, i);">Add to cart</a>
                 </div>
             </div>
         </div>

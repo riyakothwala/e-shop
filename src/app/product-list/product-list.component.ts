@@ -8,6 +8,8 @@ import { SearchDataService } from '../search-data.service';
 import { TotalCostService } from '../total-cost.service';
 import { ShoppingCartService } from '../shopping-cart.service';
 import { ModalCompComponent } from '../modal-comp/modal-comp.component';
+import { Observable, of } from 'rxjs';
+import { NumberSymbol } from '@angular/common';
 
 
 @Component({
@@ -24,8 +26,8 @@ export class ProductListComponent implements OnInit {
   searchText: string = '';
   cartSum: number = 0;
   cost: number = 0;
-  itemsOnCart: string[] = [];
   modalRef!: BsModalRef;
+  itemsOnCart: Product[] = [];
 
   constructor(private searchDataService: SearchDataService, private costData: TotalCostService, private cartData: ShoppingCartService, private modalService: BsModalService) { }
 
@@ -43,9 +45,9 @@ export class ProductListComponent implements OnInit {
       this.returnedProductList = this.filteredProductList.slice(startItem, endItem);
       console.log(this.filteredProductList.length);
     });
-    this.costData.currentCostTotal.subscribe(cartSum => this.cartSum = cartSum)
-    this.costData.currentCost.subscribe(cost => this.cost = cost)
-    this.cartData.currentCart.subscribe(itemsOnCart => this.itemsOnCart = itemsOnCart)
+    this.costData.currentCostTotal.subscribe(cartSum => this.cartSum = cartSum);
+    this.costData.currentCost.subscribe(cost => this.cost = cost);
+    this.cartData.cartC.subscribe(itemsOnCart => this.itemsOnCart = itemsOnCart)
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -61,13 +63,23 @@ export class ProductListComponent implements OnInit {
     this.returnedProductList = this.filteredProductList.slice(startItem, endItem);
   }
 
-  addToCart(newCost: number, newItem: string) {
-    this.costData.changeCost(newCost);
-    this.cartSum = this.cartSum + newCost;
+  //IDK WHY THIS DOESN'T WORK
+  addToCart1(newPrice: number, newitem: Product, index: number) {
+    this.costData.changeCost(newPrice);
+    this.cartSum = this.cartSum + newPrice;
     this.costData.changeCostTotal(this.cartSum);
 
-    this.itemsOnCart.push(newItem);
-    this.cartData.changeCartData(this.itemsOnCart);
+    this.itemsOnCart.push(newitem);
+    this.cartData.addToCart(this.itemsOnCart);
+  }
+  
+  //IDK WHY THIS DOESN'T WORK
+  addToCart2(newName: string, newType: string, newDisc: string, newFile: string, newHeight: number, newWidth: number, newPrice: number, newRate: number) {
+    this.costData.changeCost(newPrice);
+    this.cartSum = this.cartSum + newPrice;
+    this.costData.changeCostTotal(this.cartSum);
+
+    this.cartData.newItemSelected(newName, newType, newDisc, newFile, newHeight, newWidth, newPrice, newRate);
   }
 
 
@@ -80,4 +92,10 @@ export class ProductListComponent implements OnInit {
     this.modalRef = this.modalService.show(ModalCompComponent, config);
     // this.modalRef.content.closeBtnName = 'Close';
   }
+}
+
+
+export interface Person {
+  name: string;
+  place: string;
 }

@@ -1,7 +1,25 @@
 <ul>
+    <div class="grid-container">
+        <div>#:</div>
+        <div>Name</div>
+        <div>Food Type</div>
+        <div>Description</div>  
+        <div>Height</div>
+        <div>Width</div>  
+        <div>Price</div>
+        <div>Rating</div>
+    </div>
     <li *ngFor="let cartItem of itemsOnCart, let i = index">
-        <div class="wrapper">
-            Item {{i}}: {{ cartItem }}
+        <div class="grid-container">
+            <div>{{i}}</div>
+            <div>itemsOnCart.title</div>
+            <div>itemsOnCart.type</div>
+            <div>itemsOnCart.description</div>  
+            <div>itemsOnCart.height</div>
+            <div>itemsOnCart.width</div>  
+            <div>itemsOnCart.price</div>
+            <div>itemsOnCart.rating</div>
         </div>
     </li>
 </ul>
+
