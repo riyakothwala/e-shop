@@ -12,13 +12,13 @@
     <li *ngFor="let cartItem of itemsOnCart, let i = index">
         <div class="grid-container">
             <div>{{i}}</div>
-            <div>itemsOnCart.title</div>
-            <div>itemsOnCart.type</div>
-            <div>itemsOnCart.description</div>  
-            <div>itemsOnCart.height</div>
-            <div>itemsOnCart.width</div>  
-            <div>itemsOnCart.price</div>
-            <div>itemsOnCart.rating</div>
+            <div>{{cartItem.title}}</div>
+            <div>{{cartItem.type}}</div>
+            <div>{{cartItem.description}}</div>  
+            <div>{{cartItem.height}}</div>
+            <div>{{cartItem.width}}</div>  
+            <div>{{cartItem.price}}</div>
+            <div>{{cartItem.rating}}</div>
         </div>
     </li>
 </ul>
