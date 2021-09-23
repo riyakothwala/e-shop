@@ -10,6 +10,7 @@ import { ShoppingCartService } from '../shopping-cart.service';
 import { ModalCompComponent } from '../modal-comp/modal-comp.component';
 import { Observable, of } from 'rxjs';
 import { NumberSymbol } from '@angular/common';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -63,7 +64,6 @@ export class ProductListComponent implements OnInit {
     this.returnedProductList = this.filteredProductList.slice(startItem, endItem);
   }
 
-  //IDK WHY THIS DOESN'T WORK
   addToCart1(newPrice: number, newitem: Product, index: number) {
     this.costData.changeCost(newPrice);
     this.cartSum = this.cartSum + newPrice;
@@ -72,17 +72,18 @@ export class ProductListComponent implements OnInit {
     this.itemsOnCart.push(newitem);
     this.cartData.addToCart(this.itemsOnCart);
   }
-  
-  //IDK WHY THIS DOESN'T WORK
-  addToCart2(newName: string, newType: string, newDisc: string, newFile: string, newHeight: number, newWidth: number, newPrice: number, newRate: number) {
-    this.costData.changeCost(newPrice);
-    this.cartSum = this.cartSum + newPrice;
-    this.costData.changeCostTotal(this.cartSum);
 
-    this.cartData.newItemSelected(newName, newType, newDisc, newFile, newHeight, newWidth, newPrice, newRate);
+  alertAddedToCart(){
+    Swal.fire({
+      position: 'bottom-left',
+      icon: 'success',
+      title: 'Item has been added to cart',
+      showConfirmButton: false,
+      timer: 1000,
+      width: 200,
+    })
   }
-
-
+  
   openModalWithProductDescription(product: Product) {
     const config: ModalOptions = {
       initialState: {
