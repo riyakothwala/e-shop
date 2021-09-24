@@ -8,7 +8,7 @@
                     <h5 class="card-title">{{product.title}}</h5>
                     <p class="card-text">${{product.price}}</p>
                     <button class="btn btn-floating" style="margin-top: 5px;padding-left: 3px;" (click)="openModalWithProductDescription(product)">Details</button>
-                    <a class="btn btn-primary" (click)="addToCart1(product.price, product, i);alertAddedToCart();">Add to cart</a>
+                    <a class="btn btn-primary" (click)="addToCart(product.price, product, i);alertAddedToCart();">Add to cart</a>
                 </div>
             </div>
         </div>

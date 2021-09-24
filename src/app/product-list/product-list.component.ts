@@ -4,6 +4,7 @@ import { BsModalService, BsModalRef, ModalOptions } from 'ngx-bootstrap/modal';
 
 import productList from '../../assets/data/products.json';
 import { Product } from '../Product';
+import { productOnCart } from '../productOnCart';
 import { SearchDataService } from '../search-data.service';
 import { TotalCostService } from '../total-cost.service';
 import { ShoppingCartService } from '../shopping-cart.service';
@@ -28,7 +29,7 @@ export class ProductListComponent implements OnInit {
   cartSum: number = 0;
   cost: number = 0;
   modalRef!: BsModalRef;
-  itemsOnCart: Product[] = [];
+  itemsOnCart: productOnCart[] = [];
 
   constructor(private searchDataService: SearchDataService, private costData: TotalCostService, private cartData: ShoppingCartService, private modalService: BsModalService) { }
 
@@ -64,12 +65,50 @@ export class ProductListComponent implements OnInit {
     this.returnedProductList = this.filteredProductList.slice(startItem, endItem);
   }
 
-  addToCart1(newPrice: number, newitem: Product, index: number) {
+  addToCart(newPrice: number, newItem: Product, index: number) {
+    //create tempProduct of type productOnCart
+    let tempProduct: productOnCart = {title: "", type: "", description: "", filename: "", rating: 0, price: 0, quantity: 0};
+    let duplicateFound: boolean = false;
+
+    //move relavent information from newItem to tempProduct
+    tempProduct.title = newItem.title;
+    tempProduct.type = newItem.type;
+    tempProduct.description = newItem.description;
+    tempProduct.filename = newItem.filename;
+    tempProduct.rating = newItem.rating;
+    tempProduct.price = newItem.price;
+    
+    if(this.itemsOnCart.length === 0){
+      //if itemsOnCart array is empty, if true add first item
+      tempProduct.quantity = 1;
+      this.itemsOnCart.push(tempProduct);
+    }else{
+      //if itemsOnCart array is not empty check if new item is duplicate or new item
+
+      //index through itemsOnCart array
+      for (let index = 0; index < this.itemsOnCart.length; index++) {
+        const element = this.itemsOnCart[index];
+        
+        if(element.title === newItem.title){
+          //look for duplicate name from newItem if true set tempProduct.quantity to 1 + itemsOnCart.quantity
+          this.itemsOnCart[index].quantity = element.quantity + 1;
+          duplicateFound = true;
+          break;
+        }
+      }
+
+      //if no duplicates are found in for loop then set tempProduct.quantity to 1 and push to itemsOnCart array
+      if(duplicateFound === false){
+        tempProduct.quantity = 1;
+          this.itemsOnCart.push(tempProduct);
+      }
+    }
+    
     this.costData.changeCost(newPrice);
     this.cartSum = this.cartSum + newPrice;
     this.costData.changeCostTotal(this.cartSum);
 
-    this.itemsOnCart.push(newitem);
+    this.itemsOnCart.sort((a, b) => (a.title > b.title) ? 1: -1); 
     this.cartData.addToCart(this.itemsOnCart);
   }
 

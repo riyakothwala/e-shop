@@ -3,7 +3,7 @@ import { Component, OnInit, SimpleChange} from '@angular/core';
 import { TotalCostService } from '../total-cost.service';
 import { ShoppingCartService } from '../shopping-cart.service';
 import { CartService } from '../cart.service';
-import { Product } from '../Product';
+import { productOnCart } from '../productOnCart';
 
 @Component({
   selector: 'app-user-cart',
@@ -15,7 +15,7 @@ export class UserCartComponent implements OnInit {
   cartSum: number = 0;
   cost: number = 0;
   zero: number = 0;
-  itemsOnCart: Product[] = [];
+  itemsOnCart: productOnCart[] = [];
 
   constructor(private costData: TotalCostService, private cartData: ShoppingCartService, private cart: CartService) { }
 

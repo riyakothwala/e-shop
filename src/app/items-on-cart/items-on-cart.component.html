@@ -1,24 +1,22 @@
 <ul>
-    <div class="grid-container">
-        <div>#:</div>
+    <div class="grid-container-header">
+        <div>Picture</div>
         <div>Name</div>
         <div>Food Type</div>
-        <div>Description</div>  
-        <div>Height</div>
-        <div>Width</div>  
-        <div>Price</div>
+        <div>Description</div>
         <div>Rating</div>
+        <div>Price</div>
+        <div>Quantity</div>
     </div>
     <li *ngFor="let cartItem of itemsOnCart, let i = index">
         <div class="grid-container">
-            <div>{{i}}</div>
+            <img src="../../assets/images/products/{{cartItem.filename}}" alt="{{cartItem.title}} Picture" style="width:100px;height:100px;">
             <div>{{cartItem.title}}</div>
             <div>{{cartItem.type}}</div>
             <div>{{cartItem.description}}</div>  
-            <div>{{cartItem.height}}</div>
-            <div>{{cartItem.width}}</div>  
-            <div>{{cartItem.price}}</div>
             <div>{{cartItem.rating}}</div>
+            <div>{{cartItem.price}}</div>
+            <div>{{cartItem.quantity}}</div>
         </div>
     </li>
 </ul>
