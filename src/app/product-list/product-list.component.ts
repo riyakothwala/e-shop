@@ -45,7 +45,6 @@ export class ProductListComponent implements OnInit {
         productList.forEach((val: Product) => this.filteredProductList.push(Object.assign({}, val)));
       }
       this.returnedProductList = this.filteredProductList.slice(startItem, endItem);
-      console.log(this.filteredProductList.length);
     });
     this.costData.currentCostTotal.subscribe(cartSum => this.cartSum = cartSum);
     this.costData.currentCost.subscribe(cost => this.cost = cost);
@@ -67,7 +66,7 @@ export class ProductListComponent implements OnInit {
 
   addToCart(newPrice: number, newItem: Product, index: number) {
     //create tempProduct of type productOnCart
-    let tempProduct: productOnCart = {title: "", type: "", description: "", filename: "", rating: 0, price: 0, quantity: 0};
+    let tempProduct: productOnCart = { title: "", type: "", description: "", filename: "", rating: 0, price: 0, quantity: 0 };
     let duplicateFound: boolean = false;
 
     //move relavent information from newItem to tempProduct
@@ -112,6 +111,10 @@ export class ProductListComponent implements OnInit {
     this.cartData.addToCart(this.itemsOnCart);
   }
 
+  buyNow(product: Product) {
+    this.cartData.buyNow(product);
+  }
+
   alertAddedToCart(){
     Swal.fire({
       position: 'bottom-left',
@@ -132,10 +135,4 @@ export class ProductListComponent implements OnInit {
     this.modalRef = this.modalService.show(ModalCompComponent, config);
     // this.modalRef.content.closeBtnName = 'Close';
   }
-}
-
-
-export interface Person {
-  name: string;
-  place: string;
 }

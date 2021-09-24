@@ -15,6 +15,9 @@ import { CategoriesComponent } from './categories/categories.component';
 import { UserCartComponent } from './user-cart/user-cart.component';
 import { ItemsOnCartComponent } from './items-on-cart/items-on-cart.component';
 import { ModalCompComponent } from './modal-comp/modal-comp.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { CheckoutBuynowComponent } from './checkout-buynow/checkout-buynow.component';
+import { CheckoutCartComponent } from './checkout-cart/checkout-cart.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import { ModalCompComponent } from './modal-comp/modal-comp.component';
     CategoriesComponent,
     UserCartComponent,
     ItemsOnCartComponent,
-    ModalCompComponent
+    ModalCompComponent,
+    CheckoutComponent,
+    CheckoutBuynowComponent,
+    CheckoutCartComponent
   ],
   imports: [
     BrowserModule, ModalModule.forRoot(), PaginationModule.forRoot(), FormsModule, AppRoutingModule
