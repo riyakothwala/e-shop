@@ -103,10 +103,19 @@ export class ProductListComponent implements OnInit {
       }
     }
     
-    this.costData.changeCost(newPrice);
-    this.cartSum = this.cartSum + newPrice;
+    //reset cartSum to 0 to recalculate total cost of cart items
+    this.cartSum = 0;
+
+    //loop through itemsOnCart array and sum up the prices * quantities
+    for (let index = 0; index < this.itemsOnCart.length; index++) {
+      const element = this.itemsOnCart[index];
+      this.cartSum += element.price * element.quantity;
+    }
+
+    //push new value for cartSum to service handler
     this.costData.changeCostTotal(this.cartSum);
 
+    //sort items on cart array in alphebetical order and push to the service handeler
     this.itemsOnCart.sort((a, b) => (a.title > b.title) ? 1: -1); 
     this.cartData.addToCart(this.itemsOnCart);
   }

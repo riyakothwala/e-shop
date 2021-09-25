@@ -12,6 +12,7 @@
                 <img style="margin-right: 10px;" class="rounded" src="../../assets/images/products/{{cartItem.filename}} " width="100 ">
                 <div class="ml-2 "><span style="font-weight: bold;" class=" d-block ">{{cartItem.title}}</span><span class="spec">{{cartItem.description}}</span>
                     <div class="spec"><span style="font-weight: bold;">Qty: </span>{{cartItem.quantity}}</div>
+                    <button (click)="removeItemFromCart(cartItem.title)">Remove</button>
                 </div>
             </div>
             <span style="font-weight: bold;">${{cartItem.price}}</span>
