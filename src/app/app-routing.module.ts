@@ -10,8 +10,7 @@ import { CheckoutCartComponent } from './checkout-cart/checkout-cart.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/categories', pathMatch: 'full' },
-  { path: 'categories', component: CategoriesComponent },
+  { path: '', component: CategoriesComponent },
   { path: 'contactUs', component: ContactComponent },
   { path: 'shoppingCart', component: UserCartComponent },
   { path: 'checkout', component: CheckoutComponent},

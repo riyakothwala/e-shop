@@ -1,45 +1,25 @@
 <ng-container *ngIf="itemsOnCart.length==0">
-    <div class="">
-        <h2 style="text-align: center;"> Cart is Empty!</h2>
-
+    <div style="text-align:center">
+        <img src="../../assets/images/cartEmpty.jpg">
     </div>
 </ng-container>
 <ng-container *ngIf="itemsOnCart.length!=0">
-    <h4>Items</h4>
+    <h4 style="margin-top: 20pt;">Items</h4>
     <li *ngFor="let cartItem of itemsOnCart">
         <div class="d-flex justify-content-between align-items-center mt-3 p-2 items rounded">
             <div class="d-flex flex-row">
                 <img style="margin-right: 10px;" class="rounded" src="../../assets/images/products/{{cartItem.filename}} " width="100 ">
-                <div class="ml-2 "><span style="font-weight: bold;" class=" d-block ">{{cartItem.title}}</span><span class="spec">{{cartItem.description}}</span>
+                <div class="ml-2"><span style="font-weight: bold;" class=" d-block ">{{cartItem.title}}</span><span class="spec">{{cartItem.description}}</span>
                     <div class="spec"><span style="font-weight: bold;">Qty: </span>{{cartItem.quantity}}</div>
-                    <button (click)="removeItemFromCart(cartItem.title)">Remove</button>
+                    <button class="mt-2" (click)="removeItemFromCart(cartItem.title)">Remove</button>
                 </div>
             </div>
             <span style="font-weight: bold;">${{cartItem.price}}</span>
         </div>
     </li>
 
-
-    <!-- <ul>
-        <div class="grid-container-header ">
-            <div>Picture</div>
-            <div>Name</div>
-            <div>Food Type</div>
-            <div>Description</div>
-            <div>Rating</div>
-            <div>Price</div>
-            <div>Quantity</div>
-        </div>
-        <li *ngFor="let cartItem of itemsOnCart, let i=i ndex ">
-            <div class="grid-container ">
-                <img src="../../assets/images/products/{{cartItem.filename}} " alt="{{cartItem.title}} Picture " style="width:100px;height:100px; ">
-                <div>{{cartItem.title}}</div>
-                <div>{{cartItem.type}}</div>
-                <div>{{cartItem.description}}</div>
-                <div>{{cartItem.rating}}</div>
-                <div>{{cartItem.price}}</div>
-                <div>{{cartItem.quantity}}</div>
-            </div>
-        </li>
-    </ul> -->
+    <div class="d-flex justify-content-between mt-3 p-2 items rounded container p-3 my-3 border">
+        <h4>Total cost: </h4>
+        <span style="font-weight: bold;">${{cartSum}}</span>
+    </div>
 </ng-container>
