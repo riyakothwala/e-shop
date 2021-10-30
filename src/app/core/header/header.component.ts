@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchDataService } from '../../search-data.service';
+import { ShoppingCartService } from '../../shopping-cart.service';
+
 
 @Component({
   selector: 'app-header',
@@ -9,11 +11,16 @@ import { SearchDataService } from '../../search-data.service';
 export class HeaderComponent implements OnInit {
 
   searchText: string = '';
-
-  constructor(private searchDataService: SearchDataService) { }
+  public totalItem : number = 0;
+  constructor(private searchDataService: SearchDataService,private ShoppingCartService : ShoppingCartService) { }
 
   ngOnInit(): void {
     // this.searchDataService.sharedMessage.subscribe(searchText => this.searchText = searchText)
+    this.ShoppingCartService.cartC.subscribe
+    (res=>{
+      this.totalItem = res.length;
+    })
+
   }
 
   public newSearchText(elementId: string) {

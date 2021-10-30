@@ -7,31 +7,40 @@
     </a>
     <div class="col-lg-5 col-12">
         <ul class="site-menu d-none d-lg-block">
-            <li class="has-children active d-inline-block">
+            <nav class="d-inline-block">
+                <button class="headerButton1" routerLink="/">Home</button>
+            </nav>
+            <!-- <li class="has-children d-inline-block">
                 <nav>
-                    <a class="header" routerLink="/">Home</a>
-                </nav>
-            </li>
-            <li class="has-children active d-inline-block">
-                <nav>
-                    <a class="header" routerLink="/">Categories</a>
+                    <button class="headerButton1" routerLink="/">Categories
                     <ul>
                         <li>
-                            <a class="dropdown" href="#">Vegetable</a></li>
-                        <li>
-                            <a class="dropdown" href="#">Fruits</a></li>
-                        <li>
-                            <a class="dropdown" href="#">Dairy</a></li>
-                    </ul>
-                </nav>
+                            <button class="dropdown headerButton1 " href="#">Vegetable</button></li>
+            <li>
+                <button class="dropdown headerButton1" href="#">Fruits</button></li>
+            <li>
+                <button class="dropdown headerButton1" href="#">Dairy</button></li>
+        </ul>
+        </button>
+        </nav>
+        </li> -->
+            <li class="d-inline-block">
+                <button class=" headerButton1" routerLink="/" data-bs-toggle="dropdown" aria-expanded="false">
+                    Categories
+            </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Vegetable</a></li>
+                    <li><a class="dropdown-item" href="#">Fruits</a></li>
+                    <li><a class="dropdown-item" href="#">Dairy</a></li>
+                </ul>
             </li>
             <!-- &nbsp; -->
             <!-- TODO: why mr not working?-->
-            <li class="has-children active d-inline-block">
-                <nav>
-                    <a class="header" routerLink="/contactUs">Contact Us</a>
-                </nav>
-            </li>
+
+            <nav class="d-inline-block">
+                <button class="headerButton1" routerLink="/contactUs">Contact Us</button>
+            </nav>
+
 
         </ul>
     </div>
@@ -39,26 +48,24 @@
         <ul class="list-inline">
             <div class="input-group">
                 <div class="form-outline">
-                    <input type="search" [(ngModel)]="searchText" id="searchbar" class="form-control" (change)="newSearchText('productList')" />
+                    <input type="search" [(ngModel)]="searchText" id="searchbar" class="form-control " (change)="newSearchText('productList')" />
                     <!-- <label class="form-label" for="form1">Search</label> -->
                 </div>
                 <!-- <li><i class="fas fa-search"></i></li>
                 &nbsp;
                 <li><i class="fas fa-shopping-cart"></i></li> -->
-                
-                <nav>
-                    <a routerLink="/">
-                        <div class="headerButton1" (click)="newSearchText('productList')">
-                            <i class="fas fa-search"></i>  
-                        </div>        
-                    </a>
-                </nav>
 
-                <div class="headerButton1">
+                <button routerLink="/" class="headerButton1" (click)="newSearchText('productList')">
+                    <i class="fas fa-search"></i>
+                </button>
+
+                <div>
                     <nav>
-                        <a routerLink="/shoppingCart"><i class="fas fa-shopping-cart blue" style="color:white"></i></a>
+                        <button class="headerButton1" routerLink="/shoppingCart"><i class="fas fa-shopping-cart blue">
+                            <span style="font-size: 14px;"class="position-absolute top-0 start-10 translate-right badge rounded-pill bg-danger" >{{totalItem}}</span></i></button>
                     </nav>
                 </div>
+
             </div>
         </ul>
     </div>
