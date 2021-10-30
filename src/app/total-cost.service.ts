@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
+import { productOnCart } from './productOnCart'
+
 @Injectable({
   providedIn: 'root'
 })
@@ -20,6 +22,10 @@ export class TotalCostService {
 
   changeCostTotal(newCostTotal: number) {
     this.costTotalSource.next(newCostTotal)
+  }
+
+  updateCartSum(){
+
   }
 
 }

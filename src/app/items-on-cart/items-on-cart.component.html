@@ -3,6 +3,7 @@
         <img src="../../assets/images/cartEmpty.jpg">
     </div>
 </ng-container>
+
 <ng-container *ngIf="itemsOnCart.length!=0">
     <h4 style="margin-top: 20pt;">Items</h4>
     <li *ngFor="let cartItem of itemsOnCart">
@@ -10,11 +11,17 @@
             <div class="d-flex flex-row">
                 <img style="margin-right: 10px;" class="rounded" src="../../assets/images/products/{{cartItem.filename}} " width="100 ">
                 <div class="ml-2"><span style="font-weight: bold;" class=" d-block ">{{cartItem.title}}</span><span class="spec">{{cartItem.description}}</span>
-                    <div class="spec"><span style="font-weight: bold;">Qty: </span>{{cartItem.quantity}}</div>
+                    <div class="spec"><span style="font-weight: bold;">Qty: </span>{{cartItem.quantityPresent}}     {{cartItem.quantityToRemove}}</div>
+                    <select class="mt-2" name=""(change)="updateRemoveQuantity($event,cartItem.title)">
+                        <option *ngFor="let _ of [].constructor(cartItem.quantityPresent); let index=index">
+                            {{index + 1}}
+                        </option>
+                        <option value="0">0</option>
+                      </select>
                     <button class="mt-2" (click)="removeItemFromCart(cartItem.title)">Remove</button>
                 </div>
             </div>
-            <span style="font-weight: bold;">${{cartItem.price}}</span>
+            <span style="font-weight: bold;">${{cartItem.pricePerItem}}</span>
         </div>
     </li>
 
