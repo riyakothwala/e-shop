@@ -14,12 +14,12 @@
                     <div class="spec"><span style="font-weight: bold;">Qty: </span>{{cartItem.quantityPresent}}</div>
                     <select class="mt-2" name=""(change)="updateModifyQuantity($event,cartItem.title)">
                         <option value="0">0</option>
-                        <option value="-3">-3</option>
-                        <option value="-2">-2</option>
-                        <option value="-1">-1</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
                         <option value="3">3</option>
+                        <option value="2">2</option>
+                        <option value="1">1</option>
+                        <option *ngFor="let _ of [].constructor(cartItem.quantityPresent); let index=index">
+                            -{{index + 1}}
+                        </option>
                     </select>
                     <button class="mt-2" (click)="modifyItemCartQuantity(cartItem.title)">Add/Remove</button>
                 </div>
