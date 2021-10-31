@@ -22,8 +22,8 @@ export class ItemsOnCartComponent implements OnInit {
     this.costData.currentCostTotal.subscribe(cartSum => this.cartSum = cartSum);;
   }
 
-  //this function will handle removing items from shopping cart
-  removeItemFromCart(productTitle:string) {
+  //this function will handle adding/removing items to/from shopping cart
+  modifyItemCartQuantity(productTitle:string) {
 
     var cartSumTemp = 0;
 
@@ -34,8 +34,8 @@ export class ItemsOnCartComponent implements OnInit {
       //find item that maches the name we want to modify
       if(element.title == productTitle){
         
-        //update quantity present on cart by removing what is stored in quantity to remove
-        this.itemsOnCart[index].quantityPresent = this.itemsOnCart[index].quantityPresent - this.itemsOnCart[index].quantityToRemove;
+        //update quantity present on cart by adding/removing what is stored in quantity to add/remove data register
+        this.itemsOnCart[index].quantityPresent = +this.itemsOnCart[index].quantityPresent + +this.itemsOnCart[index].quantityToAddOrRemove;
 
         //bounds check for if quantity present goes below 0, if true set to 0
         if(this.itemsOnCart[index].quantityPresent < 0){
@@ -71,7 +71,7 @@ export class ItemsOnCartComponent implements OnInit {
   }
 
   //this function will update the quantity to remove property from the product on the cart
-  updateRemoveQuantity(event: any, productTitle:string) {
+  updateModifyQuantity(event: any, productTitle:string) {
     this.removeQuantity = event.target.value;
 
     //index through array of items currently present on cart
@@ -80,7 +80,7 @@ export class ItemsOnCartComponent implements OnInit {
       
       //check if the current product title matches the one we want to modify
       if(element.title == productTitle){
-        this.itemsOnCart[index].quantityToRemove = this.removeQuantity;
+        this.itemsOnCart[index].quantityToAddOrRemove = this.removeQuantity;
       }
     }
   }

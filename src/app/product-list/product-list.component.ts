@@ -64,10 +64,12 @@ export class ProductListComponent implements OnInit {
     this.returnedProductList = this.filteredProductList.slice(startItem, endItem);
   }
 
+  //This function will handle adding items to the user's cart so they can be seen on the checkout page and increase the cart sum cost
   addToCart(newPrice: number, newItem: Product, index: number) {
     //create tempProduct of type productOnCart
-    let tempProduct: productOnCart = { title: "", type: "", description: "", filename: "", rating: 0, pricePerItem: 0, quantityPresent: 0, quantityToRemove: 0, totalProductCost: 0 };
+    let tempProduct: productOnCart = { title: "", type: "", description: "", filename: "", rating: 0, pricePerItem: 0, quantityPresent: 0, quantityToAddOrRemove: 0, totalProductCost: 0 };
     let duplicateFound: boolean = false;
+    var cartSumTemp = 0;
 
     //move relavent information from newItem to tempProduct
     tempProduct.title = newItem.title;
@@ -77,7 +79,7 @@ export class ProductListComponent implements OnInit {
     tempProduct.rating = newItem.rating;
     tempProduct.pricePerItem = newItem.price;
     
-    if(this.itemsOnCart.length === 0){
+    if(this.itemsOnCart.length == 0){
       //if itemsOnCart array is empty, if true add first item
       tempProduct.quantityPresent = 1;
       this.itemsOnCart.push(tempProduct);
@@ -97,20 +99,19 @@ export class ProductListComponent implements OnInit {
       }
 
       //if no duplicates are found in for loop then set tempProduct.quantity to 1 and push to itemsOnCart array
-      if(duplicateFound === false){
+      if(duplicateFound == false){
         tempProduct.quantityPresent = 1;
           this.itemsOnCart.push(tempProduct);
       }
     }
     
-    //reset cartSum to 0 to recalculate total cost of cart items
-    this.cartSum = 0;
-
-    //loop through itemsOnCart array and sum up the prices * quantities
+    //loop through all the items on the cart again, this time we want to update the cart sum
     for (let index = 0; index < this.itemsOnCart.length; index++) {
-      const element = this.itemsOnCart[index];
-      this.cartSum += element.pricePerItem * element.quantityPresent;
+      cartSumTemp = cartSumTemp + (this.itemsOnCart[index].pricePerItem * this.itemsOnCart[index].quantityPresent);
     }
+
+    //update cartSum variable shared though angular service
+    this.cartSum = cartSumTemp;
 
     //push new value for cartSum to service handler
     this.costData.changeCostTotal(this.cartSum);

@@ -11,14 +11,17 @@
             <div class="d-flex flex-row">
                 <img style="margin-right: 10px;" class="rounded" src="../../assets/images/products/{{cartItem.filename}} " width="100 ">
                 <div class="ml-2"><span style="font-weight: bold;" class=" d-block ">{{cartItem.title}}</span><span class="spec">{{cartItem.description}}</span>
-                    <div class="spec"><span style="font-weight: bold;">Qty: </span>{{cartItem.quantityPresent}}     {{cartItem.quantityToRemove}}</div>
-                    <select class="mt-2" name=""(change)="updateRemoveQuantity($event,cartItem.title)">
-                        <option *ngFor="let _ of [].constructor(cartItem.quantityPresent); let index=index">
-                            {{index + 1}}
-                        </option>
+                    <div class="spec"><span style="font-weight: bold;">Qty: </span>{{cartItem.quantityPresent}}</div>
+                    <select class="mt-2" name=""(change)="updateModifyQuantity($event,cartItem.title)">
                         <option value="0">0</option>
-                      </select>
-                    <button class="mt-2" (click)="removeItemFromCart(cartItem.title)">Remove</button>
+                        <option value="-3">-3</option>
+                        <option value="-2">-2</option>
+                        <option value="-1">-1</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                    <button class="mt-2" (click)="modifyItemCartQuantity(cartItem.title)">Add/Remove</button>
                 </div>
             </div>
             <span style="font-weight: bold;">${{cartItem.pricePerItem}}</span>
