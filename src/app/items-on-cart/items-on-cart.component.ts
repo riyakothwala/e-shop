@@ -69,19 +69,4 @@ export class ItemsOnCartComponent implements OnInit {
     this.cartData.addToCart(this.itemsOnCart);
   
   }
-
-  //this function will update the quantity to remove property from the product on the cart
-  updateModifyQuantity(event: any, productTitle:string) {
-    this.removeQuantity = event.target.value;
-
-    //index through array of items currently present on cart
-    for (let index = 0; index < this.itemsOnCart.length; index++) {
-      const element = this.itemsOnCart[index];
-      
-      //check if the current product title matches the one we want to modify
-      if(element.title == productTitle){
-        this.itemsOnCart[index].quantityToAddOrRemove = this.removeQuantity;
-      }
-    }
-  }
 }
