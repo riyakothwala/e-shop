@@ -11,7 +11,7 @@
             <div class="d-flex flex-row">
                 <img style="margin-right: 10px;" class="rounded" src="../../assets/images/products/{{cartItem.filename}} " width="100 ">
                 <div class="ml-2"><span style="font-weight: bold;" class=" d-block ">{{cartItem.title}}</span><span class="spec">{{cartItem.description}}</span>
-                    <div class="spec"><span style="font-weight: bold;">Qty: </span>{{cartItem.quantityPresent}} {{cartItem.quantityToAddOrRemove}}</div>
+                    <div class="spec"><span style="font-weight: bold;">Qty: </span>{{cartItem.quantityPresent}}</div>
                     <p><input type="number" id="modifyQantity" name="modifyQantity" [(ngModel)]="cartItem.quantityToAddOrRemove"></p>
                     <button class="mt-2" (click)="modifyItemCartQuantity(cartItem.title)">Add/Remove</button>
                 </div>
