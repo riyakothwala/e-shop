@@ -127,12 +127,11 @@ export class ProductListComponent implements OnInit {
 
   alertAddedToCart(){
     Swal.fire({
-      position: 'bottom-left',
-      icon: 'success',
-      title: 'Item added',
+      position: 'top-right',
+      title: 'successfully added the item',
       showConfirmButton: false,
       timer: 1000,
-      width: 50,
+      width: 500
     })
   }
   
