@@ -39,6 +39,17 @@ export class ModalAddItemsComponent implements OnInit {
     })
   }
 
+  //function call will trigger a popup to notify user an item was added to the cart
+  alertNothingAddedToCart(){
+    Swal.fire({
+      position: 'top-right',
+      title: 'Nothing has been added to the cart',
+      showConfirmButton: false,
+      timer: 1000,
+     width: 500
+    })
+  }
+
   //This function will handle adding items to the user's cart so they can be seen on the checkout page and increase the cart sum cost
   addToCart(newItem: Product, itemAddQuantity: number) {
     //create tempProduct of type productOnCart
@@ -54,32 +65,35 @@ export class ModalAddItemsComponent implements OnInit {
     tempProduct.rating = newItem.rating;
     tempProduct.pricePerItem = newItem.price;
     
-    if(this.itemsOnCart.length == 0){
-      //if itemsOnCart array is empty, add items equivalent to itemAddQuantity
-      tempProduct.quantityPresent = itemAddQuantity;
-      this.itemsOnCart.push(tempProduct);
-    }else{
-      //if itemsOnCart array is not empty check if new item is duplicate or new item
-
-      //index through itemsOnCart array
-      for (let index = 0; index < this.itemsOnCart.length; index++) {
-        const element = this.itemsOnCart[index];
-        
-        if(element.title == newItem.title){
-          //look for duplicate titles between newItem & element if true set itemsOnCart quantity present to itemsOnCart quantity present + itemAddQuantity
-          this.itemsOnCart[index].quantityPresent = element.quantityPresent + itemAddQuantity;
-          duplicateFound = true;
-          break;
+    //check if the quanity of items to add to cart is greater than 0
+    if(itemAddQuantity > 0) {
+      if(this.itemsOnCart.length == 0){
+        //if itemsOnCart array is empty, add items equivalent to itemAddQuantity
+        tempProduct.quantityPresent = itemAddQuantity;
+        this.itemsOnCart.push(tempProduct);
+      }else{
+        //if itemsOnCart array is not empty check if new item is duplicate or new item
+  
+        //index through itemsOnCart array
+        for (let index = 0; index < this.itemsOnCart.length; index++) {
+          const element = this.itemsOnCart[index];
+          
+          if(element.title == newItem.title){
+            //look for duplicate titles between newItem & element if true set itemsOnCart quantity present to itemsOnCart quantity present + itemAddQuantity
+            this.itemsOnCart[index].quantityPresent = element.quantityPresent + itemAddQuantity;
+            duplicateFound = true;
+            break;
+          }
+        }
+  
+        //if no duplicates are found in for loop then set tempProduct.quantityPresent to itemAddQuantity and push to itemsOnCart array
+        if(duplicateFound == false){
+          tempProduct.quantityPresent = itemAddQuantity;
+            this.itemsOnCart.push(tempProduct);
         }
       }
-
-      //if no duplicates are found in for loop then set tempProduct.quantityPresent to itemAddQuantity and push to itemsOnCart array
-      if(duplicateFound == false){
-        tempProduct.quantityPresent = itemAddQuantity;
-          this.itemsOnCart.push(tempProduct);
-      }
     }
-    
+
     //loop through all the items on the cart again, this time we want to update the cart sum
     for (let index = 0; index < this.itemsOnCart.length; index++) {
       cartSumTemp = cartSumTemp + (this.itemsOnCart[index].pricePerItem * this.itemsOnCart[index].quantityPresent);
@@ -95,8 +109,14 @@ export class ModalAddItemsComponent implements OnInit {
     this.itemsOnCart.sort((a, b) => (a.title > b.title) ? 1: -1); 
     this.cartData.addToCart(this.itemsOnCart);
 
-    //call function to notify user that their item has been added to the cart
-    this.alertAddedToCart();
+    if(itemAddQuantity > 0) {
+      //call function to notify user that their item has been added to the cart
+      this.alertAddedToCart();
+    } else {
+      //if the user keeps the add quantity at 0 and presses confirm anyway let them know nothing was added
+      this.alertNothingAddedToCart();
+    }
+    
   }
 
 }
