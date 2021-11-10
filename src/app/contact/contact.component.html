@@ -32,26 +32,26 @@
                     <!-- Body -->
                     <div class="md-form">
                         <i class="fas fa-user prefix grey-text"></i>
-                        <input type="text" id="form-name" class="form-control">
                         <label for="form-name">Your name</label>
+                        <input [(ngModel)]="userName" type="text" id="form-name" class="form-control">
                     </div>
                     <div class="md-form">
                         <i class="fas fa-envelope prefix grey-text"></i>
-                        <input type="text" id="form-email" class="form-control">
                         <label for="form-email">Your email</label>
+                        <input [(ngModel)]="userEmail" type="text" id="form-email" class="form-control">
                     </div>
                     <div class="md-form">
                         <i class="fas fa-tag prefix grey-text"></i>
-                        <input type="text" id="form-Subject" class="form-control">
-                        <label for="form-Subject">Subject</label>
+                        <label for="form-Subject">Your Subject</label>
+                        <input [(ngModel)]="userSubject" type="text" id="form-Subject" class="form-control">
                     </div>
                     <div class="md-form">
                         <i class="fas fa-pencil-alt prefix grey-text"></i>
-                        <textarea id="form-text" class="form-control md-textarea" rows="3"></textarea>
-                        <label for="form-text">Send message</label>
+                        <label for="form-text">Your Message</label>
+                        <textarea [(ngModel)]="userMessage" id="form-text" class="form-control md-textarea" rows="3"></textarea>
                     </div>
                     <div class="text-center">
-                        <button class="btn btn-light-blue">Submit</button>
+                        <button class="form-Submit-Button" (click)="submitUserMessage()">Submit</button>
                     </div>
                 </div>
             </div>
