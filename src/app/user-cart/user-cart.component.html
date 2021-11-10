@@ -2,7 +2,10 @@
     <app-items-on-cart></app-items-on-cart>
 </ng-container>
 <ng-container *ngIf="itemsOnCart.length!=0">
+    <h4 style="margin-top: 20pt;">Items</h4>
+    <div class="cartButton" (click)="clearCart();">Clear Cart</div>
+    <div class="cartButton" routerLink="/checkoutCart" (click)="movePageToTop()">Purchase</div>
     <app-items-on-cart></app-items-on-cart>
     <div class="cartButton" (click)="clearCart();">Clear Cart</div>
-    <div class="cartButton" routerLink="/checkoutCart">Purchase</div>
+    <div class="cartButton" routerLink="/checkoutCart" (click)="movePageToTop()">Purchase</div>
 </ng-container>

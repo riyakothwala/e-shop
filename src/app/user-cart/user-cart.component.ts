@@ -36,4 +36,9 @@ export class UserCartComponent implements OnInit {
     this.cartData.addToCart(this.itemsOnCart);
   }
 
+  //function will be used to move window back to the top when called
+  movePageToTop() {
+    window.scroll(0,0);
+  }
+
 }
