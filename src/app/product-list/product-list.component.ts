@@ -37,13 +37,13 @@ export class ProductListComponent implements OnInit {
     productList.forEach((val: Product) => this.filteredProductList.push(Object.assign({}, val)));
     this.searchDataService.sharedMessage.subscribe(searchText => {
       this.searchText = searchText;
-      if(searchText=='VegetableCategory') {
+      if(searchText=='VegetableCategory'|| this.router.url.includes('/vegetables')) {
         this.filteredProductList = this.productList.filter((p: Product) => p.type.toLowerCase() === "vegetable");
       }
-      else if(searchText=='FruitCategory') {
+      else if(searchText=='FruitCategory'|| this.router.url.includes('/fruits')) {
         this.filteredProductList = this.productList.filter((p: Product) => p.type.toLowerCase() === "fruit");
       }
-      else if(searchText=='DairyCategory') {
+      else if(searchText=='DairyCategory'|| this.router.url.includes('/dairy')) {
         this.filteredProductList = this.productList.filter((p: Product) => p.type.toLowerCase() === "dairy");
       }
       else {
