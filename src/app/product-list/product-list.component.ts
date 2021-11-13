@@ -11,6 +11,8 @@ import { ShoppingCartService } from '../shopping-cart.service';
 import { ModalCompComponent } from '../modal-comp/modal-comp.component';
 import { ModalAddItemsComponent } from '../modal-add-items/modal-add-items.component';
 import { Observable, of } from 'rxjs';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-product-list',
@@ -27,7 +29,7 @@ export class ProductListComponent implements OnInit {
   modalRef!: BsModalRef;
   itemsOnCart: productOnCart[] = [];
 
-  constructor(private searchDataService: SearchDataService, private cartData: ShoppingCartService, private modalService: BsModalService) { }
+  constructor(private router: Router,private searchDataService: SearchDataService, private cartData: ShoppingCartService, private modalService: BsModalService) { }
 
   ngOnInit(): void {
     const startItem = 0;
@@ -35,11 +37,22 @@ export class ProductListComponent implements OnInit {
     productList.forEach((val: Product) => this.filteredProductList.push(Object.assign({}, val)));
     this.searchDataService.sharedMessage.subscribe(searchText => {
       this.searchText = searchText;
+      if(searchText=='VegetableCategory') {
+        this.filteredProductList = this.productList.filter((p: Product) => p.type.toLowerCase() === "vegetable");
+      }
+      else if(searchText=='FruitCategory') {
+        this.filteredProductList = this.productList.filter((p: Product) => p.type.toLowerCase() === "fruit");
+      }
+      else if(searchText=='DairyCategory') {
+        this.filteredProductList = this.productList.filter((p: Product) => p.type.toLowerCase() === "dairy");
+      }
+      else {
       if (searchText !== '') {
         this.filteredProductList = this.productList.filter((p: Product) => p.title.toLowerCase().indexOf(searchText.toLowerCase()) !== -1);
       } else {
         productList.forEach((val: Product) => this.filteredProductList.push(Object.assign({}, val)));
       }
+    }
       this.returnedProductList = this.filteredProductList.slice(startItem, endItem);
     });
     this.cartData.cartC.subscribe(itemsOnCart => this.itemsOnCart = itemsOnCart)

@@ -3,6 +3,7 @@ import { SearchDataService } from '../../search-data.service';
 import { ShoppingCartService } from '../../shopping-cart.service';
 
 
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -22,7 +23,11 @@ export class HeaderComponent implements OnInit {
     })
 
   }
-
+  public category(category: string,elementId: string) {
+    this.searchDataService.nextSearchText(category);
+    this.scroll(elementId);
+  }
+  
   public newSearchText(elementId: string) {
     this.searchDataService.nextSearchText(this.searchText);
     this.scroll(elementId);

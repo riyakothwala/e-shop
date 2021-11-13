@@ -29,9 +29,9 @@
                     Categories
             </button>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Vegetable</a></li>
-                    <li><a class="dropdown-item" href="#">Fruits</a></li>
-                    <li><a class="dropdown-item" href="#">Dairy</a></li>
+                    <li><a (click)="category('VegetableCategory','productList')" class="dropdown-item" routerLink="/vegetables">Vegetable</a></li>
+                    <li><a (click)="category('FruitCategory','productList')" class="dropdown-item" routerLink="/fruits">Fruits</a></li>
+                    <li><a (click)="category('DairyCategory','productList')" class="dropdown-item" routerLink="/dairy">Dairy</a></li>
                 </ul>
             </li>
             <!-- &nbsp; -->

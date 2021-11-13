@@ -8,14 +8,19 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { CheckoutBuynowComponent } from './checkout-buynow/checkout-buynow.component';
 import { CheckoutCartComponent } from './checkout-cart/checkout-cart.component';
 
-
 const routes: Routes = [
   { path: '', component: CategoriesComponent },
   { path: 'contactUs', component: ContactComponent },
   { path: 'shoppingCart', component: UserCartComponent },
   { path: 'checkout', component: CheckoutComponent},
   { path: 'buynow', component: CheckoutBuynowComponent},
-  { path: 'checkoutCart', component: CheckoutCartComponent}
+  { path: 'checkoutCart', component: CheckoutCartComponent},
+  { path: 'vegetables', component: CategoriesComponent},
+  { path: 'fruits', component: CategoriesComponent},
+  { path: 'dairy', component: CategoriesComponent}
+  // { path: 'vegetables', component: VegetableComponent},
+  // { path: 'fruits', component: FruitsComponent},
+  // { path: 'dairy', component: DairyComponent}
 ];
 
 @NgModule({
