@@ -3,34 +3,30 @@
     <div class="row">
         <div class="col-md-6 mb-3">
             <label for="firstName">First name</label>
-            <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
-            <div class="invalid-feedback"> Valid first name is required. </div>
+            <input [(ngModel)]="FirstName" type="text" class="form-control" name="FirstName" placeholder="" required="">
         </div>
         <div class="col-md-6 mb-3">
             <label for="lastName">Last name</label>
-            <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
-            <div class="invalid-feedback"> Valid last name is required. </div>
+            <input [(ngModel)]="LastName" type="text" class="form-control" name="LastName" placeholder="" value="" required="">
         </div>
     </div>
 
     <div class="mb-3">
         <label for="email">Email</label>
-        <input type="email" class="form-control" id="email" placeholder="name@domain.com">
-        <div class="invalid-feedback"> Please enter a valid email address </div>
+        <input [(ngModel)]="Email" type="email" class="form-control" name="Email" placeholder="name@domain.com">
     </div>
     <div class="mb-3">
         <label for="address">Address</label>
-        <input type="text" class="form-control" id="address" placeholder="1234 Main St" required="">
-        <div class="invalid-feedback"> Please enter your shipping address. </div>
+        <input [(ngModel)]="Address" type="text" class="form-control" name="Address" placeholder="1234 Main St" required="">
     </div>
-    <div class="mb-3">
-        <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
+    <!-- <div class="mb-3">
+        <label [(ngModel)]="AddressOptional" for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
         <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
-    </div>
+    </div> -->
     <div class="row">
         <div class="col-md-5 mb-3">
             <label for="country">Country</label>
-            <select class="custom-select d-block w-100" id="country" required="">
+            <select [(ngModel)]="Country" class="custom-select d-block w-100" name="Country" required="">
                             <option value="">Select</option>
                             <option>United States</option>
                         </select>
@@ -38,7 +34,7 @@
         </div>
         <div class="col-md-4 ">
             <label for="state">State</label>
-            <select class="custom-select d-block w-100" id="state" required="">
+            <select [(ngModel)]="State" class="custom-select d-block w-100" name="State" required="">
                             <option value="">Select</option>
                             <option>California</option>
                         </select>
@@ -46,7 +42,7 @@
         </div>
         <div class="col-md-3 mb-3">
             <label for="zip">Zip</label>
-            <input type="text" class="form-control" id="zip" placeholder="" required="">
+            <input [(ngModel)]="Zip" type="text" class="form-control" name="Zip" placeholder="" required="">
             <div class="invalid-feedback"> Zip code required. </div>
         </div>
     </div>
@@ -54,39 +50,39 @@
     <h4 class="card-header">Payment</h4>
     <div class="d-block my-3">
         <div class="custom-control custom-radio">
-            <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked="" required="">
-            <label class="custom-control-label" for="credit">Credit card</label>
+            <input [(ngModel)]="PaymentMethod" value="PaymentMethod" id="credit" name="PaymentMethod" type="radio" class="custom-control-input">
+            <label class="custom-control-label">Credit card</label>
         </div>
         <div class="custom-control custom-radio">
-            <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required="">
-            <label class="custom-control-label" for="debit">Debit card</label>
+            <input [(ngModel)]="PaymentMethod" value="PaymentMethode" id="debit" name="PaymentMethod" type="radio" class="custom-control-input">
+            <label class="custom-control-label">Debit card</label>
         </div>
 
     </div>
     <div class="row">
         <div class="col-md-6 mb-3">
             <label for="cc-name">Name on card</label>
-            <input type="text" class="form-control" id="cc-name" placeholder="Full name as on card" required="">
+            <input [(ngModel)]="NameOnCard" type="text" class="form-control" name="NameOnCard" placeholder="Full name as on card" required="">
             <div class="invalid-feedback"> Name on card is required </div>
         </div>
         <div class="col-md-6 mb-3">
             <label for="cc-number">Credit card number</label>
-            <input type="text" class="form-control" id="cc-number" placeholder="" required="">
+            <input [(ngModel)]="CardNumber" type="text" class="form-control" name="NameOnCard" placeholder="" required="">
             <div class="invalid-feedback"> Credit card number is required </div>
         </div>
     </div>
     <div class="row">
         <div class="col-md-3 mb-3">
             <label for="cc-expiration">Expiration</label>
-            <input type="text" class="form-control" id="cc-expiration" placeholder="" required="">
+            <input [(ngModel)]="Expiration" type="text" class="form-control" name="Expiration" placeholder="" required="">
             <div class="invalid-feedback"> Expiration date required </div>
         </div>
         <div class="col-md-3 mb-3">
             <label for="cc-cvv">CVV</label>
-            <input type="text" class="form-control" id="cc-cvv" placeholder="" required="">
+            <input [(ngModel)]="Cvv" type="text" class="form-control" name="Expiration" placeholder="" required="">
             <div class="invalid-feedback"> Security code required </div>
         </div>
     </div>
     <hr class="mb-4">
-    <button class="btn btn-primary btn-lg btn-block" type="submit">Place order</button>
+    <button class="btn btn-primary btn-lg btn-block" (click)="submitUserMessage()" type="submit">Place order</button>
 </form>
