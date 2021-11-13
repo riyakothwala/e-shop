@@ -32,10 +32,11 @@ export class ModalAddItemsComponent implements OnInit {
   alertAddedToCart(){
     Swal.fire({
       position: 'top-right',
-      title: 'successfully added the item',
+      icon:"info",
+      title: '<h6><b>successfully added the item</h6>',
       showConfirmButton: false,
       timer: 1000,
-     width: 500
+     width: 300
     })
   }
 
@@ -43,7 +44,8 @@ export class ModalAddItemsComponent implements OnInit {
   alertNothingAddedToCart(){
     Swal.fire({
       position: 'top-right',
-      title: 'Nothing has been added to the cart',
+      icon:"warning",
+      title: '<h6><b>Nothing has been added to the cart</h6>',
       showConfirmButton: false,
       timer: 1000,
      width: 500
