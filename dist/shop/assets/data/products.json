@@ -1,7 +1,7 @@
 [{
         "title": "Brown eggs",
-        "type": "dairy",
-        "description": "Raw organic brown eggs in a basket",
+        "type": "Non-Vegetarian",
+        "description": "Organic farm produced brown eggs, 1 dozen",
         "filename": "0.jpg",
         "height": 600,
         "width": 400,
@@ -9,9 +9,9 @@
         "rating": 4
     },
     {
-        "title": "Sweet fresh stawberry",
-        "type": "fruit",
-        "description": "Sweet fresh stawberry on the wooden table",
+        "title": "Fresh stawberry(sweet)",
+        "type": "Fruits",
+        "description": "Roxy's Sweet whole stawberries, 64 oz",
         "filename": "1.jpg",
         "height": 450,
         "width": 299,
@@ -21,7 +21,7 @@
     {
         "title": "Asparagus",
         "type": "vegetable",
-        "description": "Asparagus with ham on the wooden table",
+        "description": "Asparagus spears with ham, 8 oz",
         "filename": "2.jpg",
         "height": 450,
         "width": 299,
@@ -31,7 +31,7 @@
     {
         "title": "Green smoothie",
         "type": "dairy",
-        "description": "Glass of green smoothie with quail egg's yolk, served with cocktail tube, green apple and baby spinach leaves over tin surface.",
+        "description": "Glass of green smoothie with quail egg's yolk, served with cocktail tube, green apple and baby spinach leaves, 500 ml",
         "filename": "3.jpg",
         "height": 600,
         "width": 399,
@@ -39,9 +39,9 @@
         "rating": 4
     },
     {
-        "title": "Raw legums",
-        "type": "vegetable",
-        "description": "Raw legums on the wooden table",
+        "title": "Raw legumes",
+        "type": "grains",
+        "description": "Ross's Raw legumes, 12 oz  ",
         "filename": "4.jpg",
         "height": 450,
         "width": 299,
@@ -49,9 +49,9 @@
         "rating": 2
     },
     {
-        "title": "Baking cake",
+        "title": "home baked cake",
         "type": "dairy",
-        "description": "Baking cake in rural kitchen - dough  recipe ingredients (eggs, flour, sugar) on vintage wooden table from above.",
+        "description": "homemade baked cake, 37 oz",
         "filename": "5.jpg",
         "height": 450,
         "width": 675,
@@ -61,7 +61,7 @@
     {
         "title": "Pesto with basil",
         "type": "vegetable",
-        "description": "Italian traditional pesto with basil, chesse and oil",
+        "description": "Italian traditional pesto with basil, chesse and oil, 12 oz",
         "filename": "6.jpg",
         "height": 450,
         "width": 299,
@@ -69,9 +69,9 @@
         "rating": 2
     },
     {
-        "title": "Hazelnut in black ceramic bowl",
-        "type": "vegetable",
-        "description": "Hazelnut in black ceramic bowl on old wooden background. forest wealth. rustic style. selective focus",
+        "title": "Hazelnut",
+        "type": "nuts",
+        "description": "Hazelnut, 15 oz",
         "filename": "7.jpg",
         "height": 450,
         "width": 301,
@@ -81,7 +81,7 @@
     {
         "title": "Fresh stawberry",
         "type": "fruit",
-        "description": "Sweet fresh stawberry on the wooden table",
+        "description": "Sweet fresh stawberry, 8 oz",
         "filename": "8.jpg",
         "height": 600,
         "width": 399,
@@ -91,7 +91,7 @@
     {
         "title": "Lemon and salt",
         "type": "fruit",
-        "description": "Rosemary, lemon and salt on the table",
+        "description": "Rosemary, lemon and salt. 12 oz",
         "filename": "9.jpg",
         "height": 450,
         "width": 299,
@@ -101,7 +101,7 @@
     {
         "title": "Homemade bread",
         "type": "bakery",
-        "description": "Homemade bread",
+        "description": "Homemade bread loaf, sliced, 12 oz",
         "filename": "10.jpg",
         "height": 450,
         "width": 301,
@@ -109,9 +109,9 @@
         "rating": 3
     },
     {
-        "title": "Legums",
+        "title": "Legumes",
         "type": "vegetable",
-        "description": "Cooked legums on the wooden table",
+        "description": "Cooked legumes, 12 oz",
         "filename": "11.jpg",
         "height": 600,
         "width": 399,
@@ -119,9 +119,9 @@
         "rating": 0
     },
     {
-        "title": "Fresh tomato",
+        "title": "Fresh tomato juice",
         "type": "vegetable",
-        "description": "Fresh tomato juice with basil",
+        "description": "Fresh tomato juice with basil, 8 fl oz",
         "filename": "12.jpg",
         "height": 600,
         "width": 903,
@@ -129,9 +129,9 @@
         "rating": 2
     },
     {
-        "title": "Healthy breakfast",
+        "title": "Healthy breakfast set",
         "type": "fruit",
-        "description": "Healthy breakfast set. rice cereal or porridge with berries and honey over rustic wood background",
+        "description": "rice cereal or porridge with berries and honey, 8 oz canister",
         "filename": "13.jpg",
         "height": 450,
         "width": 350,
@@ -141,7 +141,7 @@
     {
         "title": "Green beans",
         "type": "vegetable",
-        "description": "Raw organic green beans ready to eat",
+        "description": "Raw organic green beans ready to eat, 500 gram pack",
         "filename": "14.jpg",
         "height": 450,
         "width": 300,
@@ -151,7 +151,7 @@
     {
         "title": "Baked stuffed portabello mushrooms",
         "type": "bakery",
-        "description": "Homemade baked stuffed portabello mushrooms with spinach and cheese",
+        "description": "Homemade baked stuffed portabello mushrooms with spinach and cheese, 4 counts",
         "filename": "15.jpg",
         "height": 600,
         "width": 400,
@@ -161,7 +161,7 @@
     {
         "title": "Strawberry jelly",
         "type": "fruit",
-        "description": "Homemade organic strawberry jelly in a jar",
+        "description": "Homemade strawberry jelly, 250 ml",
         "filename": "16.jpg",
         "height": 400,
         "width": 600,
@@ -171,7 +171,7 @@
     {
         "title": "Pears juice",
         "type": "fruit",
-        "description": "Fresh pears juice on the wooden table",
+        "description": "Fresh pears juice, 6 counts",
         "filename": "17.jpg",
         "height": 600,
         "width": 398,
@@ -181,7 +181,7 @@
     {
         "title": "Fresh pears",
         "type": "fruit",
-        "description": "Sweet fresh pears on the wooden table",
+        "description": "Sweet fresh pears, 12 oz",
         "filename": "18.jpg",
         "height": 600,
         "width": 398,
@@ -191,7 +191,7 @@
     {
         "title": "Caprese salad",
         "type": "vegetable",
-        "description": "Homemade healthy caprese salad with tomato mozzarella and basil",
+        "description": "Homemade healthy caprese salad with tomato mozzarella and basil, 500 grams",
         "filename": "19.jpg",
         "height": 400,
         "width": 600,
@@ -201,7 +201,7 @@
     {
         "title": "Oranges",
         "type": "fruit",
-        "description": "Orange popsicle ice cream bars made from fresh oranges.  a refreshing summer treat.",
+        "description": "Orange popsicle ice cream bars, 1 count",
         "filename": "20.jpg",
         "height": 450,
         "width": 274,
@@ -209,9 +209,9 @@
         "rating": 4
     },
     {
-        "title": "Vegan food",
+        "title": "plaant based vegan breakfast canister",
         "type": "vegetable",
-        "description": "Concept of vegan food",
+        "description": "vegan food for breakfast, 12 oz",
         "filename": "21.jpg",
         "height": 450,
         "width": 299,
@@ -219,9 +219,9 @@
         "rating": 4
     },
     {
-        "title": "Breakfast with muesli",
+        "title": "Muesli",
         "type": "dairy",
-        "description": "Concept of healthy breakfast with muesli",
+        "description": "Muesli, 500 grams",
         "filename": "22.jpg",
         "height": 450,
         "width": 299,
@@ -231,7 +231,7 @@
     {
         "title": "Honey",
         "type": "bakery",
-        "description": "Honey and honeycell on the table",
+        "description": "Honey, 250 ml",
         "filename": "23.jpg",
         "height": 450,
         "width": 299,
@@ -239,9 +239,9 @@
         "rating": 2
     },
     {
-        "title": "Breakfast with cottage",
+        "title": "Breakfast with cottage cheese",
         "type": "fruit",
-        "description": "Healthy breakfast with cottage cheese and strawberry",
+        "description": "Healthy breakfast with cottage cheese and strawberry, 12 oz",
         "filename": "24.jpg",
         "height": 600,
         "width": 398,
@@ -251,7 +251,7 @@
     {
         "title": "Strawberry smoothie",
         "type": "fruit",
-        "description": "Glass of red strawberry smoothie with chia seeds, served with retro cocktail tube, fresh mint and strawberries over dark background",
+        "description": "Strawberry smoothie with chia seeds, retro cocktail tube, fresh mint, 500 ml",
         "filename": "25.jpg",
         "height": 600,
         "width": 400,
@@ -261,7 +261,7 @@
     {
         "title": "Strawberry and mint",
         "type": "fruit",
-        "description": "Homemade muesli with strawberry and mint",
+        "description": "Homemade muesli with strawberry and mint, 8 oz",
         "filename": "26.jpg",
         "height": 450,
         "width": 299,
@@ -271,7 +271,7 @@
     {
         "title": "Ricotta",
         "type": "dairy",
-        "description": "Ricotta with berry and mint",
+        "description": "Ricotta with berry and mint, 12 oz",
         "filename": "27.jpg",
         "height": 600,
         "width": 398,
@@ -279,9 +279,9 @@
         "rating": 5
     },
     {
-        "title": "Cuban sandwiche",
+        "title": "Cuban sandwich",
         "type": "bakery",
-        "description": "Homemade traditional cuban sandwiches with ham pork and cheese",
+        "description": "Homemade traditional cuban sandwich with ham pork and cheese, 1 count",
         "filename": "28.jpg",
         "height": 450,
         "width": 300,
@@ -291,7 +291,7 @@
     {
         "title": "Granola",
         "type": "dairy",
-        "description": "Glass jar with homemade granola and yogurt with nuts, raspberries and blackberries on wooden cutting board over white textile in day light",
+        "description": "Homemade granola and yogurt with nuts, raspberries and blackberries, 12 fl oz",
         "filename": "29.jpg",
         "height": 450,
         "width": 300,
@@ -301,7 +301,7 @@
     {
         "title": "Smoothie with chia seeds",
         "type": "fruit",
-        "description": "Glass of red strawberry smoothie with chia seeds, served with retro cocktail tube, fresh mint and strawberries over wooden table",
+        "description": "Strawberry smoothie with chia seeds, 250 ml",
         "filename": "30.jpg",
         "height": 600,
         "width": 900,
@@ -311,7 +311,7 @@
     {
         "title": "Yogurt",
         "type": "dairy",
-        "description": "Homemade yogurt with raspberry and mint",
+        "description": "Homemade yogurt with raspberry and mint, 12 oz",
         "filename": "31.jpg",
         "height": 450,
         "width": 299,
@@ -321,7 +321,7 @@
     {
         "title": "Sandwich with salad",
         "type": "vegetable",
-        "description": "Vegan sandwich with salad, tomato and radish",
+        "description": "Vegan sandwich with salad, tomato and radish, 1 count",
         "filename": "32.jpg",
         "height": 600,
         "width": 398,
@@ -331,7 +331,7 @@
     {
         "title": "Cherry",
         "type": "fruit",
-        "description": "Cherry with sugar on old table",
+        "description": "Cherry, 250 gram pack",
         "filename": "33.jpg",
         "height": 600,
         "width": 400,
@@ -339,9 +339,9 @@
         "rating": 5
     },
     {
-        "title": "Raw asparagus",
+        "title": "Asparagus",
         "type": "vegetable",
-        "description": "Raw fresh asparagus salad with cheese and dressing",
+        "description": "Raw fresh asparagus salad with cheese and dressing, 12 oz",
         "filename": "34.jpg",
         "height": 600,
         "width": 400,
@@ -351,7 +351,7 @@
     {
         "title": "Corn",
         "type": "vegetable",
-        "description": "Grilled corn on the cob with salt and butter",
+        "description": "Grilled corn on the cob, 2 counts",
         "filename": "35.jpg",
         "height": 450,
         "width": 300,
@@ -361,7 +361,7 @@
     {
         "title": "Vegan",
         "type": "vegan",
-        "description": "Concept of healthy vegan eating",
+        "description": "healthy vegan meal, 8 oz packet",
         "filename": "36.jpg",
         "height": 600,
         "width": 398,
@@ -371,7 +371,7 @@
     {
         "title": "Fresh blueberries",
         "type": "fruit",
-        "description": "Healthy breakfast. berry crumble with fresh blueberries, raspberries, strawberries, almond, walnuts, pecans, yogurt, and mint in ceramic plates over white wooden surface, top view",
+        "description": "Farm produced blueberries, 250 gram pack",
         "filename": "37.jpg",
         "height": 450,
         "width": 321,
@@ -381,7 +381,7 @@
     {
         "title": "Smashed avocado",
         "type": "fruit",
-        "description": "Vegan sandwiches with smashed avocado, tomatoes and radish. top view",
+        "description": "Sandwich with smashed avocado, tomatoes and radish. 1 count",
         "filename": "38.jpg",
         "height": 450,
         "width": 450,
