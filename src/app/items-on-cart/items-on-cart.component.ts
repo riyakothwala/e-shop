@@ -3,6 +3,10 @@ import { ShoppingCartService } from '../shopping-cart.service';
 import { productOnCart } from '../productOnCart';
 import { CartService } from '../cart.service';
 import { TotalCostService } from '../total-cost.service';
+import { ModalCompComponent } from '../modal-comp/modal-comp.component';
+import { BsModalService, ModalOptions } from 'ngx-bootstrap/modal';
+import { Product } from '../Product';
+
 
 @Component({
   selector: 'app-items-on-cart',
@@ -10,12 +14,14 @@ import { TotalCostService } from '../total-cost.service';
   styleUrls: ['./items-on-cart.component.scss']
 })
 export class ItemsOnCartComponent implements OnInit {
+  modalRef: any;
 
-  constructor(private cartData: ShoppingCartService, private cart: CartService, private costData: TotalCostService) { }
+  constructor(private cartData: ShoppingCartService, private cart: CartService, private costData: TotalCostService,private modalService: BsModalService) { }
 
   itemsOnCart: productOnCart[] = [];
   cartSum: number = 0;
   removeQuantity: number = 0;
+  totalCostofProduct:number=0;
 
   ngOnInit(): void {
     this.cartData.cartC.subscribe(itemsOnCart => this.itemsOnCart = itemsOnCart);
@@ -35,8 +41,8 @@ export class ItemsOnCartComponent implements OnInit {
       if(element.title == productTitle){
         
         //update quantity present on cart by adding/removing what is stored in quantity to add/remove data register
-        this.itemsOnCart[index].quantityPresent = +this.itemsOnCart[index].quantityPresent + +this.itemsOnCart[index].quantityToAddOrRemove;
-
+        this.itemsOnCart[index].quantityPresent = this.itemsOnCart[index].quantityToAddOrRemove;
+        // +this.itemsOnCart[index].quantityPresent + +
         //bounds check for if quantity present goes below 0, if true set to 0
         if(this.itemsOnCart[index].quantityPresent < 0){
           this.itemsOnCart[index].quantityPresent = 0;
@@ -68,5 +74,17 @@ export class ItemsOnCartComponent implements OnInit {
     //push new items on cart array to service handeler
     this.cartData.addToCart(this.itemsOnCart);
   
+  }
+
+  openModalWithProductDescription(cartItem: productOnCart) {
+    let product: Product = { title: cartItem.title, type: cartItem.type, description: cartItem.description, filename: cartItem.filename, rating: cartItem.rating, price: cartItem.pricePerItem, height: 0, width: 0 };
+
+    const config: ModalOptions = {
+      initialState: {
+        "product": product, 
+      }
+    }
+    this.modalRef = this.modalService.show(ModalCompComponent, config);
+
   }
 }

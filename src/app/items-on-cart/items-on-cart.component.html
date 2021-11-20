@@ -9,18 +9,20 @@
         <div class="d-flex justify-content-between align-items-center mt-3 p-2 items rounded">
             <div class="d-flex flex-row">
                 <img style="margin-right: 10px;" class="rounded" src="../../assets/images/products/{{cartItem.filename}} " width="100 ">
-                <div class="ml-2"><span style="font-weight: bold;" class=" d-block ">{{cartItem.title}}</span><span class="spec">{{cartItem.description}}</span>
+                <div class="ml-2">
+                    <p><button (click)="openModalWithProductDescription(cartItem)" style="padding: 0pt;" class="btn btn-link btn-lg button">{{cartItem.title}}</button></p>
                     <div class="spec"><span style="font-weight: bold;">Qty: </span>{{cartItem.quantityPresent}}</div>
-                    <p><input type="number" id="modifyQantity" name="modifyQantity" [(ngModel)]="cartItem.quantityToAddOrRemove"></p>
-                    <button class="mt-2" (click)="modifyItemCartQuantity(cartItem.title)">Add/Remove</button>
+                    <div class="spec"><span style="font-weight: bold;padding-right: 4pt;">${{cartItem.pricePerItem}}</span>per qty</div>
+                    <p><input type="number" min="0" style="width: 3em" id="modifyQantity" name="modifyQantity" [(ngModel)]="cartItem.quantityToAddOrRemove"> <span style="padding: 4pt;"><button class="mt-2" (click)="modifyItemCartQuantity(cartItem.title)">Update Qty</button></span></p>
+
                 </div>
             </div>
-            <span style="font-weight: bold;">${{cartItem.pricePerItem}}</span>
+            <div style="font-weight: bold" id="temp">${{cartItem.pricePerItem * cartItem.quantityPresent | number: '1.2-2'}}</div>
         </div>
     </li>
 
     <div class="d-flex justify-content-between mt-3 p-2 items rounded container p-3 my-3 border">
         <h4>Total cost: </h4>
-        <span style="font-weight: bold;">${{cartSum}}</span>
+        <span style="font-weight: bold;">${{cartSum | number: '1.2-2'}}</span>
     </div>
 </ng-container>

@@ -9,15 +9,26 @@
         <h4>Items</h4>
         <div class="d-flex justify-content-between align-items-center mt-3 p-2 items rounded">
             <div class="d-flex flex-row">
-                <img style="margin-right: 10px;" class="rounded" src="../../assets/images/products/{{product.filename}} " width="70 ">
-                <div class="ml-2"><span style="font-weight: bold;" class=" d-block ">{{product.title}}</span><span class="spec">{{product.description}}</span>
+                <img style="margin-right: 10px;" class="rounded" src="../../assets/images/products/{{product.filename}} " width="70">
+                <div class="ml-2">
+                    <p><button (click)="openModalWithProductDescription(product)" style="padding: 0pt;" class="btn btn-link btn-lg button">{{product.title}}</button></p>
+                    <div class="spec"><span style="font-weight: bold;">Qty: </span>{{quantityPresent}}</div>
+                    <div class="spec">
+                        <span style="font-weight: bold;padding-right: 4pt;">${{product.price}}</span> per qty
+                    </div>
+                    <p>
+                        <input type="number" style="width: 3em" id="modifyQantity" min="1" name="modifyQantity" [(ngModel)]="quantityToAddOrRemove">
+                        <span style="padding: 4pt;">
+                            <button class="mt-2" (click)="modifyItemCartQuantity()">Update Qty</button>
+                        </span>
+                    </p>
                 </div>
             </div>
-            <span style="font-weight: bold;">${{product.price}}</span>
+            <div style="font-weight: bold" id="temp">${{product.price * quantityPresent | number: '1.2-2'}}</div>
         </div>
         <div class="d-flex justify-content-between mt-3 p-2 items rounded container p-3 my-3 border">
             <h4>Total cost: </h4>
-            <span style="font-weight: bold;">${{product.price}}</span>
+            <span style="font-weight: bold;">${{product.price * quantityPresent | number: '1.2-2'}}</span>
         </div>
     </div>
 

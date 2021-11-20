@@ -94,7 +94,8 @@ export class ProductListComponent implements OnInit {
     const config: ModalOptions = {
       initialState: {
         "product": product
-      }
+      }, 
+      class : 'modal-sm'
     }
     this.modalRef = this.modalService.show(ModalAddItemsComponent, config);
   }

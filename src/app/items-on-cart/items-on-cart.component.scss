@@ -1,21 +1,27 @@
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    opacity: 1;
+}
+
 li {
     list-style-type: none;
 }
 
 .grid-container-header {
-  display: grid;
-  grid-template-columns: 100px 200px 150px 420px 75px 100px 75px;
-  grid-gap: 5px;
-  background-color: #0d6efd;
-  padding: 5px;
-  width: 1160px;
+    display: grid;
+    grid-template-columns: 100px 200px 150px 420px 75px 100px 75px;
+    grid-gap: 5px;
+    background-color: #0d6efd;
+    padding: 5px;
+    width: 1160px;
 }
-  .grid-container-header > div {
+
+.grid-container-header>div {
     background-color: rgba(255, 255, 255, 0.8);
     text-align: center;
     padding: 10px 0;
     font-size: 15px;
-  }
+}
 
 .grid-container {
     display: grid;
@@ -24,16 +30,16 @@ li {
     background-color: #0d6efd;
     padding: 5px;
     width: 1160px;
-  }
-  
-  .grid-container > div {
+}
+
+.grid-container>div {
     background-color: rgba(255, 255, 255, 0.8);
     text-align: center;
     padding: 50px 0;
     font-size: 15px;
-  }
+}
 
-  .grid-container > img {
+.grid-container>img {
     background-color: rgba(255, 255, 255, 0.8);
     text-align: center;
     padding: 0px 0px;
@@ -41,4 +47,8 @@ li {
     margin-bottom: auto;
     margin-left: auto;
     margin-right: auto;
-  }
+}
+
+.button:hover {
+    color: darkblue
+}

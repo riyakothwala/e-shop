@@ -16,7 +16,7 @@ export class ModalAddItemsComponent implements OnInit {
 
   cartSum: number = 0;
   itemsOnCart: productOnCart[] = [];
-  addQuantity: number = 0;
+  addQuantity: number = 1;
 
   @Input()
   product!: Product;
