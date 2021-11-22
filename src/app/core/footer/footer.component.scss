@@ -5,7 +5,7 @@ ul {
 
 .grid-container {
     display: grid;
-    grid-template-columns: 450px 450px;
+    grid-template-columns: 450px 600px;
     grid-gap: 50px;
     font-size: 15px;
     justify-content: center;
@@ -16,4 +16,9 @@ ul {
   text-align: center;
   padding: 20px 0;
   font-size: 30px;
+}
+
+.quickLinks {
+  font-size: 1.25rem;
+  color: yellow;
 }
