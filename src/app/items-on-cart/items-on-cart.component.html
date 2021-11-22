@@ -13,7 +13,12 @@
                     <p><button (click)="openModalWithProductDescription(cartItem)" style="padding: 0pt;" class="btn btn-link btn-lg button">{{cartItem.title}}</button></p>
                     <div class="spec"><span style="font-weight: bold;">Qty: </span>{{cartItem.quantityPresent}}</div>
                     <div class="spec"><span style="font-weight: bold;padding-right: 4pt;">${{cartItem.pricePerItem}}</span>per qty</div>
-                    <p><input type="number" min="0" style="width: 3em" id="modifyQantity" name="modifyQantity" [(ngModel)]="cartItem.quantityToAddOrRemove"> <span style="padding: 4pt;"><button class="mt-2" (click)="modifyItemCartQuantity(cartItem.title)">Update Qty</button></span></p>
+                    <p>
+                        <input type="number" min="0" style="width: 3em" id="modifyQantity" name="modifyQantity" [(ngModel)]="cartItem.quantityToAddOrRemove">
+                        <span style="padding: 4pt;">
+                            <button class="updateQtyButton" (click)="modifyItemCartQuantity(cartItem.title)">Update Qty</button>
+                        </span>
+                    </p>
 
                 </div>
             </div>

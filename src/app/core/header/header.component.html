@@ -18,7 +18,7 @@
             <div class="col-lg-5 col-12">
                 <ul class="site-menu d-none d-lg-block">
                     <nav class="d-inline-block">
-                        <button (click)="category('','productList')" class="headerButton1" routerLink="/">Home</button>
+                        <button (click)="category('','productList')" class="headerButton1" routerLink="/" >Home</button>
                     </nav>
                 
                     <li class="d-inline-block">
@@ -44,7 +44,7 @@
                             <input type="search" [(ngModel)]="searchText" id="searchbar" class="form-control " (change)="newSearchText('productList')" />
                             
                         </div>
-                        <button routerLink="/" class="headerButton1" (click)="newSearchText('productList')">
+                        <button routerLink="/" class="headerButton2" (click)="newSearchText('productList')">
                             <i class="fas fa-search"></i>
                         </button>
     
