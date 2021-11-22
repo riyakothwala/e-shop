@@ -1,14 +1,17 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-12">
+            <app-header></app-header>
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <app-header></app-header>
+                        <p style="margin-left: 0em;padding: 75px 100px 75px 100px;border-width: 0px; border-color: black; border-style:solid;"></p>
+                        <router-outlet></router-outlet>
+                        <p style="margin-left: 0em;padding: 25px 100px 25px 100px;border-width: 0px; border-color: black; border-style:solid;"></p>
                     </div>
                 </div>
             </div>
-            <!-- <app-footer></app-footer> -->
+            <app-footer></app-footer>
         </div>
     </div>
 </div>

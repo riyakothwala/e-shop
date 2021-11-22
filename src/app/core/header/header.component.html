@@ -1,73 +1,69 @@
-<div class="row navbar navbar-collapse" style="font-size: large;">
-    <!-- <a href="#" class="col-lg-3 col-12" style="font-weight: bold;font-size: 60px;color: rgb(63, 15, 15);text-shadow: 2px 2px 5px red;">
-        E-SHOP
-    </a> -->
-    <a (click)="category('','productList')" class="col-lg-1 col-12 navbar-brand" routerLink="/">
-        <img src="../../assets/images/header/eshop-logo-no-border.png" alt="..." height="50px">
-    </a>
-    <div class="col-lg-5 col-12">
-        <ul class="site-menu d-none d-lg-block">
-            <nav class="d-inline-block">
-                <button (click)="category('','productList')" class="headerButton1" routerLink="/">Home</button>
-            </nav>
-            <!-- <li class="has-children d-inline-block">
-                <nav>
-                    <button class="headerButton1" routerLink="/">Categories
-                    <ul>
-                        <li>
-                            <button class="dropdown headerButton1 " href="#">Vegetable</button></li>
-            <li>
-                <button class="dropdown headerButton1" href="#">Fruits</button></li>
-            <li>
-                <button class="dropdown headerButton1" href="#">Dairy</button></li>
-        </ul>
-        </button>
-        </nav>
-        </li> -->
-            <li class="d-inline-block">
-                <button class=" headerButton1" routerLink="/" data-bs-toggle="dropdown" aria-expanded="false">
-                    Categories
-            </button>
-                <ul class="dropdown-menu">
-                    <li><a (click)="category('VegetableCategory','productList')" class="dropdown-item" routerLink="/vegetables">Vegetable</a></li>
-                    <li><a (click)="category('FruitCategory','productList')" class="dropdown-item" routerLink="/fruits">Fruits</a></li>
-                    <li><a (click)="category('DairyCategory','productList')" class="dropdown-item" routerLink="/dairy">Dairy</a></li>
-                </ul>
-            </li>
-            <!-- &nbsp; -->
-            <!-- TODO: why mr not working?-->
-
-            <nav class="d-inline-block">
-                <button class="headerButton1" routerLink="/contactUs">Contact Us</button>
-            </nav>
-
-
-        </ul>
+<!-- Begin stage wrapper -->
+<div style="position: relative;">
+  
+    <!-- Background wrapper: -->
+    <div style="position: absolute; z-index: 1; left: 0; top: 0; width: 100%;">
+      <!-- All background content goes here... -->
+      <img src="../../assets/images/header/HeaderIMG.PNG" alt="footer background" width="100%">
     </div>
-    <div class="col-lg-4 col-12">
-        <ul class="list-inline">
-            <div class="input-group">
-                <div class="form-outline">
-                    <input type="search" [(ngModel)]="searchText" id="searchbar" class="form-control " (change)="newSearchText('productList')" />
-                    <!-- <label class="form-label" for="form1">Search</label> -->
-                </div>
-                <!-- <li><i class="fas fa-search"></i></li>
-                &nbsp;
-                <li><i class="fas fa-shopping-cart"></i></li> -->
-
-                <button routerLink="/" class="headerButton1" (click)="newSearchText('productList')">
-                    <i class="fas fa-search"></i>
-                </button>
-
-                <div>
-                    <nav>
-                        <button class="headerButton1" routerLink="/shoppingCart"><i class="fas fa-shopping-cart blue">
-                            <span style="font-size: 14px;"class="position-absolute top-0 start-10 translate-right badge rounded-pill bg-danger" >{{totalItem}}</span></i></button>
+  
+    <!-- Content wrapper; all original content goes inside of this div: -->
+    <div style="position: relative; z-index: 2;">
+      <!-- Begin content block -->
+        <div class="row navbar navbar-collapse" style="font-size: large;">
+        
+            <a (click)="category('','productList')" class="col-lg-1 col-12 navbar-brand" routerLink="/">
+                <img src="../../assets/images/header/eshop-logo-no-border.png" alt="..." height="50px">
+            </a>
+            <div class="col-lg-5 col-12">
+                <ul class="site-menu d-none d-lg-block">
+                    <nav class="d-inline-block">
+                        <button (click)="category('','productList')" class="headerButton1" routerLink="/">Home</button>
                     </nav>
-                </div>
-
+                
+                    <li class="d-inline-block">
+                        <button class=" headerButton1" routerLink="/" data-bs-toggle="dropdown" aria-expanded="false">
+                            Categories
+                    </button>
+                        <ul class="dropdown-menu">
+                           <li><a (click)="category('VegetableCategory','productList')" class="dropdown-item" routerLink="/vegetables">Vegetable</a></li>
+                            <li><a (click)="category('FruitCategory','productList')" class="dropdown-item" routerLink="/fruits">Fruits</a></li>
+                            <li><a (click)="category('DairyCategory','productList')" class="dropdown-item" routerLink="/dairy">Dairy</a></li>
+                        </ul>
+                    </li>
+                    
+                    <nav class="d-inline-block">
+                        <button class="headerButton1" routerLink="/contactUs">Contact Us</button>
+                    </nav>
+                </ul>
             </div>
-        </ul>
-    </div>
-    <router-outlet></router-outlet>
+            <div class="col-lg-4 col-12">
+                <ul class="list-inline">
+                    <div class="input-group">
+                        <div class="form-outline">
+                            <input type="search" [(ngModel)]="searchText" id="searchbar" class="form-control " (change)="newSearchText('productList')" />
+                            
+                        </div>
+                        <button routerLink="/" class="headerButton1" (click)="newSearchText('productList')">
+                            <i class="fas fa-search"></i>
+                        </button>
+    
+                        <div>
+                            <nav>
+                                <button class="headerButton1" routerLink="/shoppingCart"><i class="fas fa-shopping-cart blue">
+                                    <span style="font-size: 14px;"class="position-absolute top-0 start-10 translate-right badge rounded-pill bg-danger" >{{totalItem}}</span></i></button>
+                            </nav>
+                        </div>
+                    </div>
+                </ul>
+            </div>
+        </div> 
+      <!-- End content block -->
+    </div>  
 </div>
+<!-- End stage wrapper -->
+
+
+
+
+
